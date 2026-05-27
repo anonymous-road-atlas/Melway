@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "osm_id": "710067987", "railway": null, "z_order": 3, "other_tags": null, "name": null, "waterway": null, "man_made": null, "aerialway": null, "barrier": null, "gid": 710067987, "fclass": "unclassified", "Pred": 0 }, "geometry": { "type": "LineString", "coordinates": [ [ 144.8557974, -37.6916549 ], [ 144.8563752, -37.6915826 ], [ 144.8565629, -37.6915699 ], [ 144.8567668, -37.6915614 ], [ 144.857018900000014, -37.6915635 ], [ 144.8577914, -37.6916059 ], [ 144.8578745, -37.6915975 ], [ 144.8579523, -37.6915592 ], [ 144.8579925, -37.6915019 ], [ 144.8579963, -37.691463 ], [ 144.8580006, -37.6914192 ], [ 144.857989800000013, -37.6913576 ], [ 144.8578507, -37.6906138 ], [ 144.8577569, -37.6901126 ] ] } }
+]
+}

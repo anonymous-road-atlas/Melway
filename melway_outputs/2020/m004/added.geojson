@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "osm_id": "583053589", "railway": null, "z_order": 3, "other_tags": "\"access\"=>\"private\",\"surface\"=>\"gravel\",\"maxspeed\"=>\"45\"", "name": "Barbiston Road", "waterway": null, "man_made": null, "aerialway": null, "barrier": null, "gid": 583053589, "fclass": "residential", "Pred": 0 }, "geometry": { "type": "LineString", "coordinates": [ [ 144.827327, -37.6795009 ], [ 144.821954299999987, -37.6789025 ], [ 144.8197214, -37.6786573 ], [ 144.817748599999987, -37.6784406 ], [ 144.8139721, -37.6780058 ], [ 144.8112856, -37.6776865 ], [ 144.809179699999987, -37.6774705 ], [ 144.8089548, -37.6774608 ] ] } }
+]
+}

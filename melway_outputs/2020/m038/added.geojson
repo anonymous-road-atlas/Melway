@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "osm_id": "45416148", "railway": null, "z_order": 3, "other_tags": null, "name": null, "waterway": null, "man_made": null, "aerialway": null, "barrier": null, "gid": 45416148, "fclass": "residential", "Pred": 0 }, "geometry": { "type": "LineString", "coordinates": [ [ 145.3474381, -37.7827053 ], [ 145.3493171, -37.7828903 ], [ 145.3493573, -37.7828945 ], [ 145.3495302, -37.7829215 ] ] } },
+{ "type": "Feature", "properties": { "osm_id": "257853618", "railway": null, "z_order": 3, "other_tags": null, "name": "Chris Drive", "waterway": null, "man_made": null, "aerialway": null, "barrier": null, "gid": 257853618, "fclass": "unclassified", "Pred": 0 }, "geometry": { "type": "LineString", "coordinates": [ [ 145.349849, -37.7481429 ], [ 145.3498195, -37.7480431 ], [ 145.3498142, -37.7479477 ], [ 145.3498356, -37.7477822 ], [ 145.3498732, -37.7476635 ], [ 145.3498973, -37.7476295 ], [ 145.3499617, -37.7476126 ], [ 145.350047499999988, -37.7476126 ], [ 145.3505572, -37.7477038 ], [ 145.351276, -37.7478628 ], [ 145.3515523, -37.7479307 ], [ 145.351667600000013, -37.7479837 ] ] } }
+]
+}

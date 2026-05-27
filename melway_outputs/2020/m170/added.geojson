@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "osm_id": "395547187", "railway": null, "z_order": 9, "other_tags": "\"ref\"=>\"M11\",\"lanes\"=>\"2\",\"oneway\"=>\"yes\",\"maxspeed\"=>\"90\"", "name": "Mornington Peninsula Freeway", "waterway": null, "man_made": null, "aerialway": null, "barrier": null, "gid": 395547187, "fclass": "motorway", "Pred": 0 }, "geometry": { "type": "LineString", "coordinates": [ [ 144.8896497, -38.3766324 ], [ 144.889468099999988, -38.3767146 ], [ 144.8893406, -38.3768022 ] ] } }
+]
+}

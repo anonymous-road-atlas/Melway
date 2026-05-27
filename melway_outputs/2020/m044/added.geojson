@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "osm_id": "27924996", "railway": null, "z_order": 3, "other_tags": "\"oneway\"=>\"no\",\"surface\"=>\"paved\"", "name": "The Vaucluse", "waterway": null, "man_made": null, "aerialway": null, "barrier": null, "gid": 27924996, "fclass": "residential", "Pred": 0 }, "geometry": { "type": "LineString", "coordinates": [ [ 144.9955663, -37.8209439 ], [ 144.9957693, -37.8209809 ], [ 144.9958686, -37.8210596 ], [ 144.9962856, -37.8213706 ], [ 144.9965173, -37.8213973 ], [ 144.9977355, -37.8215377 ], [ 144.9978869, -37.8215511 ], [ 144.9984725, -37.8216171 ], [ 144.9986131, -37.8216329 ], [ 144.9986317, -37.821635 ] ] } },
+{ "type": "Feature", "properties": { "osm_id": "13762519", "railway": null, "z_order": 3, "other_tags": "\"surface\"=>\"paved\",\"maxspeed\"=>\"35\"", "name": "Deep Rock Road", "waterway": null, "man_made": null, "aerialway": null, "barrier": null, "gid": 13762519, "fclass": "residential", "Pred": 0 }, "geometry": { "type": "LineString", "coordinates": [ [ 145.0063639, -37.7955394 ], [ 145.006652699999989, -37.7954712 ], [ 145.006886400000013, -37.7956332 ], [ 145.007074100000011, -37.7957053 ], [ 145.0073102, -37.7957477 ], [ 145.0076674, -37.7957158 ], [ 145.0079843, -37.7955795 ], [ 145.008128699999986, -37.795427 ], [ 145.0083453, -37.7952024 ], [ 145.008431300000012, -37.7951161 ], [ 145.008533199999988, -37.7950694 ], [ 145.0088015, -37.7949974 ], [ 145.0091126, -37.7950143 ], [ 145.0098374, -37.7950661 ] ] } }
+]
+}

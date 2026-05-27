@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "gid": 130606, "osm_id_x": "392889354", "code": 5122.0, "fclass_x": "residential", "name_x": null, "ref": null, "oneway": "F", "maxspeed": 0.0, "layer": 0.0, "bridge": "F", "tunnel": "F", "state": "VIC", "class": 7.0, "metropolit": null, "status": "disappeared", "osm_id_y": null, "railway": null, "z_order": null, "other_tags": null, "name_y": null, "waterway": null, "man_made": null, "aerialway": null, "barrier": null, "gid_df_feat": null, "fclass_y": null, "length_m": null, "overlap_m": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ 145.0851384, -37.8137396 ], [ 145.085182800000013, -37.8138159 ] ] ] } }
+]
+}

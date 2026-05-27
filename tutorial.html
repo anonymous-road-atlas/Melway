@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tutorial</title>
+<style>
+/* ── Site nav ── */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid #dee2e6;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+.site-nav-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.site-nav-brand {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #212529;
+  letter-spacing: 0.01em;
+}
+.site-nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.site-nav-links a {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.88rem;
+  color: #6c757d;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.site-nav-links a:hover,
+.site-nav-links a.active {
+  color: #212529;
+}
+
+/* ── Notion content overrides ── */
+html {
+  -webkit-print-color-adjust: exact;
+}
+* {
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+}
+body {
+  line-height: 1.5;
+  white-space: pre-wrap;
+  padding-top: 0;
+}
+@media only screen {
+  .notion-page-wrapper {
+    margin: 2em auto;
+    max-width: 1100px;
+    padding: 0 2rem 4rem;
+    color: rgb(55, 53, 47);
+  }
+}
+
+/* ── Original Notion CSS (overrides follow at end of block) ── */
+
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+
+/* ── Final overrides: undo Notion's body constraints ── */
+body {
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.site-nav {
+  width: 100%;
+}
+</style>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <span class="site-nav-brand">Melway Road Atlas</span>
+    <div class="site-nav-links">
+      <a href="index.html">Demo</a>
+      <a href="tutorial.html" class="active">Tutorial</a>
+      <a href="https://github.com/anonymous-road-atlas/melway" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </div>
+</nav>
+<div class="notion-page-wrapper">
+<article id="356f8ef7-31f6-8072-8105-cec1869cc6fd" class="page sans"><div class="page-body"><div style="display:contents" dir="auto"><ul id="356f8ef7-31f6-8036-90f3-fdc340af5701" class="toggle"><li><details open=""><summary>Table of Contents</summary><div style="display:contents" dir="ltr"><nav id="356f8ef7-31f6-8011-affb-c3e97097663c" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#357f8ef7-31f6-8009-b7b6-f47322c739f2">0. Beginning</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#356f8ef7-31f6-80fd-891a-c8fdc822d5df">1. Overview</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#356f8ef7-31f6-8019-8941-ff99d2880472">2. Installation</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#356f8ef7-31f6-8084-82d3-e9e4da14fe85">Requirements</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#356f8ef7-31f6-809d-8da7-d85982bcc129">Steps</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#356f8ef7-31f6-80fa-a306-d99b5b621a8a">3. Directory Structure &amp; Required Inputs</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#356f8ef7-31f6-809a-95ae-e0b9b76b475a">About `mel_roads_m&lt;id&gt;_old_2.geojson`</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#356f8ef7-31f6-8065-91b0-c8f05074114e">How the “modern roads” source is determined</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#356f8ef7-31f6-8029-9068-e0a68590380f">4. Quick Start (Single Map Sheet)</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#356f8ef7-31f6-808f-b2b3-cd32baed787a">CLI arguments</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#356f8ef7-31f6-80d9-b112-c539b002c32f">5. Parameter Reference</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#356f8ef7-31f6-804e-8627-ca883b151061">Runtime target (overridable via CLI)</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#356f8ef7-31f6-801e-bdeb-e888b343c99d">Road colour detection &amp; skeletonisation</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#356f8ef7-31f6-80ec-94fb-e8901452b05c">GeoJSON smoothing</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#356f8ef7-31f6-80d7-ab6b-cf1af8b1c3d4">HIRONEX feature extraction</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#356f8ef7-31f6-8004-9aee-c99a8b4e347d">Road comparison (historical vs modern)</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#356f8ef7-31f6-80f0-8bec-c438f58240a0">Coordinate systems</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#356f8ef7-31f6-8030-8922-f84a4f2eef5d">Loop detection &amp; connectivity repair</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#356f8ef7-31f6-80d8-8a66-fb0face03289">OCR filter</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#356f8ef7-31f6-8093-aa86-d98a8575fb6c">Post-processing</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#356f8ef7-31f6-80db-a0df-f13b9d39a3ba">6. Output Files</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#356f8ef7-31f6-802d-9e07-d321c4adba01">Files</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#356f8ef7-31f6-80d8-a296-e8a6c905c61b">Key GeoJSON properties</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#356f8ef7-31f6-80c1-971f-f356389bdac4">7. Pipeline Diagram</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#357f8ef7-31f6-8092-9590-e3194367f446">8. Module Reference (src/)</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#357f8ef7-31f6-8090-ae92-eaf992ab688b"><code>main.py</code> — Pipeline entry point</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#357f8ef7-31f6-803c-84c9-fc510e0e6f43"><code>config.py</code> — Central configuration</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#357f8ef7-31f6-8086-86ed-ec5116b59f6f"><code>tif_converter.py</code> — Palette TIF → RGBA TIF (Step 1)</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#357f8ef7-31f6-80a7-866c-d84abe12483f"><code>road_extractor.py</code> — Colour masking + skeletonisation (Step 2)</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#357f8ef7-31f6-8012-aeba-e55db5ba4b64"><code>feature_extractor.py</code> — HIRONEX feature extraction + RF prediction (Step 3)</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#357f8ef7-31f6-8059-afca-e8ba3ddea153"><code>loop_detector.py</code> — Circular loop detection (Step 4a)</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#357f8ef7-31f6-80aa-bc6e-e6c0ccde5dd1"><code>connectivity_fixer.py</code> — Connectivity-based label promotion (Step 4b)</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#357f8ef7-31f6-80b5-9cb6-c5e2f5f36bc6"><code>road_comparator.py</code> — Historical vs modern comparison (Step 5)</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#357f8ef7-31f6-8035-8e20-c5e3373acc11"><code>ocr_filter.py</code> — Text artefact removal (Step 6)</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#357f8ef7-31f6-80e8-8979-f05e01d679b5"><code>post_processor.py</code> — Final cleanup (Step 8)</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#357f8ef7-31f6-80a1-a91d-fff84bd97e29"><code>logger.py</code> — Logging setup</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#357f8ef7-31f6-8054-b283-c62934ac57ef"><code>utils.py</code> — Shared helpers</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#356f8ef7-31f6-80cc-a49b-f0ac2ac25027">9. Troubleshooting</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#356f8ef7-31f6-8022-946b-cda293d1bc0f">RGBA TIF not found</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#356f8ef7-31f6-80ce-88b0-f0ff134dde56">Historical road output is empty (0 features)</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#356f8ef7-31f6-80b9-9865-c8deb02702c8">CRS warning on historical GeoJSON</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#356f8ef7-31f6-804e-b553-cd9b6913bbb6">OCR is removing too many roads</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#356f8ef7-31f6-803e-95bf-deb686d6b4d3">Missing modern road reference for historical years</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#356f8ef7-31f6-80bd-b40c-fb676f0af5b4">Wrong model path</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#357f8ef7-31f6-803c-98d6-ffd7a93d8f6b">Web Demo</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#357f8ef7-31f6-800c-83fa-dbd672766e84">Quick Start</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#357f8ef7-31f6-80fc-a6f0-d5b5b6177889">Option 1 — Python (no install required)</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#357f8ef7-31f6-80e3-b390-e708ef3cff40">Option 2 — Node.js</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#357f8ef7-31f6-8002-86e5-cf53a36a6ef8">Option 3 — VS Code Live Server</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#357f8ef7-31f6-80e4-889f-e4c4e10969a8">Interface Overview</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#357f8ef7-31f6-80a8-9312-fed92e051cd3">Controls</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#357f8ef7-31f6-80ea-97cd-d1bc45a8fb8b">Year Buttons</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#357f8ef7-31f6-8068-9329-c9943de0b2a6">Layer Toggle Buttons</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#357f8ef7-31f6-805c-8740-f223a7d628d6">Focus Area Buttons</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#357f8ef7-31f6-806a-b771-d8d6e41ac4d7">Data Structure</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#357f8ef7-31f6-8088-8cab-df0e48fbbb58">How the Loading Works (Technical)</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#357f8ef7-31f6-8068-9a19-e817ef196a0a">Adding a New Year</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#357f8ef7-31f6-8078-ab7f-c81021d1770a">Adding a New Focus Area</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#357f8ef7-31f6-80d2-a8e3-c0018f9302b4">Dependencies</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#357f8ef7-31f6-80b8-971c-d1a91df3f4be">Acknowledgment</a></div></nav></div></details></li></ul></div><div style="display:contents" dir="auto"><h2 id="357f8ef7-31f6-8009-b7b6-f47322c739f2" class="">0. Beginning</h2></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-80d8-9d88-c25e2dfc3a0b" class="">I install the QGIS-LTR 3.40.5-Bratislava</p></div><div style="display:contents" dir="ltr"><figure id="357f8ef7-31f6-80a1-9e00-f28f29d19c3a" class="image"><a href="tutorial-images/image.png"><img style="width:672px" src="tutorial-images/image.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-8027-a723-fc8734d0eb19" class="">My testing is primarily conducted in QGIS, while all scripts are executed on Ubuntu. In principle, GPU computation is not required.</p></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-808e-a2c8-eed59cc6c725" class="">The road data provided by Kiki, as well as the outputs generated by my code, are imported into QGIS for manual inspection.</p></div><div style="display:contents" dir="ltr"><figure id="357f8ef7-31f6-8082-8a7b-ed042d8b428e" class="image"><a href="tutorial-images/image%201.png"><img style="width:703.9783935546875px" src="tutorial-images/image%201.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-803e-886e-dcc6c8c8743c" class="">The output file from my code can directly import in QGIS with GeoJSON.</p></div><div style="display:contents" dir="ltr"><figure id="357f8ef7-31f6-808f-a29b-c208f88f21eb" class="image"><a href="tutorial-images/image%202.png"><img style="width:703.9783935546875px" src="tutorial-images/image%202.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="356f8ef7-31f6-80fd-891a-c8fdc822d5df" class="">1. Overview</h2></div><div style="display:contents" dir="auto"><p id="356f8ef7-31f6-80ab-bd37-eff82ea9914f" class="">This tool takes scanned Melway street map GeoTIFFs as input and automatically detects road changes across different years, producing three categories of output:</p></div><div style="display:contents" dir="auto"><ul id="356f8ef7-31f6-80c0-bda8-dcb2e665d886" class="bulleted-list"><li style="list-style-type:disc"><strong>persisted (paper shows remained)</strong> — roads present in both the historical and modern map</li></ul></div><div style="display:contents" dir="auto"><ul id="356f8ef7-31f6-80f7-af90-cdc0d910de07" class="bulleted-list"><li style="list-style-type:disc"><strong>added</strong> — roads that appear in the modern map but not the historical one</li></ul></div><div style="display:contents" dir="auto"><ul id="356f8ef7-31f6-801d-988f-f79bfcc2f521" class="bulleted-list"><li style="list-style-type:disc"><strong>disappeared</strong> — roads present in the historical map that no longer exist today</li></ul></div><div style="display:contents" dir="auto"><hr id="356f8ef7-31f6-80dd-8ad6-c3d16bc255c5"/></div><div style="display:contents" dir="auto"><h2 id="356f8ef7-31f6-8019-8941-ff99d2880472" class="">2. Installation</h2></div><div style="display:contents" dir="auto"><h3 id="356f8ef7-31f6-8084-82d3-e9e4da14fe85" class="">Requirements</h3></div><div style="display:contents" dir="auto"><ul id="356f8ef7-31f6-80cf-8f71-efa312df8511" class="bulleted-list"><li style="list-style-type:disc">Python <strong>3.9+</strong> (3.10 recommended)</li></ul></div><div style="display:contents" dir="auto"><ul id="356f8ef7-31f6-806a-951d-c1ff3492b65d" class="bulleted-list"><li style="list-style-type:disc">pip</li></ul></div><div style="display:contents" dir="auto"><h3 id="356f8ef7-31f6-809d-8da7-d85982bcc129" class="">Steps</h3></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js" integrity="sha512-whYhDwtTmlC/NpZlCr6PSsAaLOrfjVg/iXAnC4H/dtiHawpShhT2SlIMbpIhT/IL/NrpdMm+Hq2C13+VKpHTYw==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><pre id="356f8ef7-31f6-807e-b8e0-e3e169e3d917" class="code code-wrap"><code class="language-bash" style="white-space:pre-wrap;word-break:break-all"># 1. Enter the project root
+cd kiki_roadmap_exisit_checker
+
+# 2. Create a virtual environment (recommended)
+# or using anaocnda 
+python3 -m venv .venv
+source .venv/bin/activate      # Linux / macOS
+# .venv\Scripts\activate       # Windows
+
+# 3. Install dependencies
+pip install -r requirements.txt</code></pre></div><div style="display:contents" dir="auto"><p id="356f8ef7-31f6-8059-8c17-d8e2055db0dc" class="">If you only need the core pipeline, you can install just the essential packages:</p></div><div style="display:contents" dir="auto"><pre id="356f8ef7-31f6-8030-a697-d102e0460150" class="code code-wrap"><code class="language-bash" style="white-space:pre-wrap;word-break:break-all">pip install geopandas rasterio shapely opencv-python scikit-image scikit-learn joblib tqdm pandas numpy easyocr</code></pre></div><div style="display:contents" dir="auto"><hr id="356f8ef7-31f6-809a-8d5f-c0199594a221"/></div><div style="display:contents" dir="auto"><h2 id="356f8ef7-31f6-80fa-a306-d99b5b621a8a" class="">3. Directory Structure &amp; Required Inputs</h2></div><div style="display:contents" dir="auto"><pre id="356f8ef7-31f6-801c-ba84-cc08bbd0ab78" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">my-map/
+├── data/
+│   └── melway/
+│       └── &lt;year&gt;/                             ← year folder, e.g. 2020, 2011
+│           ├── m&lt;id&gt;.tif                       ← palette-indexed GeoTIFF (required)
+│           ├── m&lt;id&gt;_rgba.tif                  ← auto-generated on first run
+│           └── mel_roads_m&lt;id&gt;_old_2.geojson   ← pre-prepared historical roads (required)
+│
+├── models/
+│   └── rf_model_20251110.joblib                ← pre-trained Random Forest model (required)
+│
+├── outputs/                                    ← all results written here
+│   └── &lt;year&gt;/m&lt;id&gt;/
+│       ├── persisted.geojson
+│       ├── added.geojson
+│       ├── disappeared.geojson
+│       ├── historical_all.geojson
+│       ├── historical_db.geojson
+│       └── historical_db_final.geojson
+│
+└── src/
+    ├── main.py             ← pipeline entry point
+    ├── config.py           ← all parameters in one place
+    ├── tif_converter.py
+    ├── road_extractor.py
+    ├── feature_extractor.py
+    ├── loop_detector.py
+    ├── connectivity_fixer.py
+    ├── road_comparator.py
+    ├── ocr_filter.py
+    └── post_processor.py</code></pre></div><div style="display:contents" dir="auto"><h3 id="356f8ef7-31f6-809a-95ae-e0b9b76b475a" class="">About `mel_roads_m&lt;id&gt;_old_2.geojson`</h3></div><div style="display:contents" dir="auto"><p id="356f8ef7-31f6-80e3-b5b1-c7ced2a4809d" class="">This file represents the historical road network for a single map sheet, stored as GeoJSON LineStrings. <code>mel_roads_m&lt;id&gt;_old_2.geojson</code> is automatically generated from <code>{MAP}_rgba.tif</code> , where the roads are directly extracted by tracing from the image. As this process is line-based, the resulting geometry has relatively lower precision.</p></div><div style="display:contents" dir="auto"><h3 id="356f8ef7-31f6-8065-91b0-c8f05074114e" class="">How the “modern roads” source is determined</h3></div><div style="display:contents" dir="auto"><p id="356f8ef7-31f6-8009-b47e-d2b3cbeb4d4d" class=""><code>get_paths()</code> in <code>config.py</code> picks the modern road reference depending on the year:</p></div><div style="display:contents" dir="auto"><ul id="356f8ef7-31f6-8011-92d1-c97736889025" class="bulleted-list"><li style="list-style-type:disc"><code>year == &quot;2020&quot;</code> → reads <code>data/melway/2020/mel_roads_m&lt;id&gt;.geojson</code> (the latest baseline)</li></ul></div><div style="display:contents" dir="auto"><ul id="356f8ef7-31f6-8031-a146-c49df4f391c4" class="bulleted-list"><li style="list-style-type:disc"><code>year != &quot;2020&quot;</code> → reads <code>outputs/&lt;next_year&gt;/m&lt;id&gt;/historical_db.geojson</code> (chained from the next year’s output)</li></ul></div><div style="display:contents" dir="auto"><p id="356f8ef7-31f6-8011-b5dd-f5dcaca9a575" class="">When processing historical years, <strong>always run newer years first</strong>: 2011 → 2006 → 2001.</p></div><div style="display:contents" dir="auto"><hr id="356f8ef7-31f6-8088-9571-e247b5c81f5a"/></div><div style="display:contents" dir="auto"><h2 id="356f8ef7-31f6-8029-9068-e0a68590380f" class="">4. Quick Start (Single Map Sheet)</h2></div><div style="display:contents" dir="auto"><p id="356f8ef7-31f6-8016-8c8c-c8dd19f00110" class="">Run from inside the <code>my-map/</code> directory:</p></div><div style="display:contents" dir="auto"><pre id="356f8ef7-31f6-805c-9ef3-d636eaba6963" class="code code-wrap"><code class="language-bash" style="white-space:pre-wrap;word-break:break-all">cd my-map
+
+# Basic run (2020, sheet m003)
+python src/main.py --map_id 003 --year 2020
+
+# Skip road extraction if a historical GeoJSON already exists
+python src/main.py --map_id 003 --year 2020 --skip_extraction
+
+# Process a historical year (next_year required)
+python src/main.py --map_id 003 --year 2011 --next_year 2020
+
+# Custom log directory
+python src/main.py --map_id 003 --year 2020 --log_dir ./logs</code></pre></div><div style="display:contents" dir="auto"><h3 id="356f8ef7-31f6-808f-b2b3-cd32baed787a" class="">CLI arguments</h3></div><div style="display:contents" dir="ltr"><table id="356f8ef7-31f6-8067-9527-cc4402c0aa1a" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-80d4-93c2-f56471e32e49"><th id="nwdu" class="simple-table-header-color simple-table-header">Argument</th><th id="jbK?" class="simple-table-header-color simple-table-header">Default</th><th id="Z=g;" class="simple-table-header-color simple-table-header">Description</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-8087-907e-e6b2d043f9c7"><td id="nwdu" class=""><code>--map_id</code></td><td id="jbK?" class=""><code>003</code></td><td id="Z=g;" class="">Map sheet number, zero-padded (e.g. <code>007</code>)</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-8041-95ce-db1e12d82aeb"><td id="nwdu" class=""><code>--year</code></td><td id="jbK?" class=""><code>2020</code></td><td id="Z=g;" class="">Year to process</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-8081-a611-c204dfc5f1d8"><td id="nwdu" class=""><code>--next_year</code></td><td id="jbK?" class=""><code>2020</code></td><td id="Z=g;" class="">The following year; required when processing non-2020 years</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-800f-9065-ee308c4b5c38"><td id="nwdu" class=""><code>--skip_extraction</code></td><td id="jbK?" class=""><code>False</code></td><td id="Z=g;" class="">Skip road extraction and use the existing historical GeoJSON</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-8009-8fb9-d8e9abe9dd98"><td id="nwdu" class=""><code>--log_dir</code></td><td id="jbK?" class=""><code>&lt;project&gt;/logs</code></td><td id="Z=g;" class="">Directory for log files</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="356f8ef7-31f6-805c-b2b1-dc2c0665788d"/></div><div style="display:contents" dir="auto"><h2 id="356f8ef7-31f6-80d9-b112-c539b002c32f" class="">5. Parameter Reference</h2></div><div style="display:contents" dir="auto"><p id="356f8ef7-31f6-800a-830c-e94185f8e003" class=""><strong>All parameters live in </strong><code><strong><a href="https://www.notion.somy-map/src/config.py">my-map/src/config.py</a></strong></code><strong>.</strong> You never need to touch any other source file to tune the pipeline.</p></div><div style="display:contents" dir="auto"><h3 id="356f8ef7-31f6-804e-8627-ca883b151061" class="">Runtime target (overridable via CLI)</h3></div><div style="display:contents" dir="ltr"><table id="356f8ef7-31f6-80c9-9e23-f4744ab6aca1" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-80f4-8c0a-cc0d73d20840"><th id="[JYk" class="simple-table-header-color simple-table-header">Parameter</th><th id="Iplw" class="simple-table-header-color simple-table-header">Default</th><th id="s?|n" class="simple-table-header-color simple-table-header">Description</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-80b5-bdf7-d772f57a067a"><td id="[JYk" class=""><code>MAP_ID</code></td><td id="Iplw" class=""><code>&quot;003&quot;</code></td><td id="s?|n" class="">Default map sheet number</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-8025-9de1-c39e74ba4269"><td id="[JYk" class=""><code>YEAR</code></td><td id="Iplw" class=""><code>&quot;2020&quot;</code></td><td id="s?|n" class="">Default year</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-803d-b9be-d9d3870114e7"><td id="[JYk" class=""><code>NEXT_YEAR</code></td><td id="Iplw" class=""><code>&quot;2020&quot;</code></td><td id="s?|n" class="">Default next year</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="356f8ef7-31f6-801e-bdeb-e888b343c99d" class="">Road colour detection &amp; skeletonisation</h3></div><div style="display:contents" dir="ltr"><table id="356f8ef7-31f6-80df-aca2-c88b82590fd6" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-8075-8977-c6bf6aae43f0"><th id="q=ks" class="simple-table-header-color simple-table-header">Parameter</th><th id="dZLj" class="simple-table-header-color simple-table-header">Default</th><th id="{XHk" class="simple-table-header-color simple-table-header">Description</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-80fe-a69a-d9c3ebd83550"><td id="q=ks" class=""><code>COLOR_TOLERANCE</code></td><td id="dZLj" class=""><code>10</code></td><td id="{XHk" class="">BGR distance tolerance for colour matching. Increase to 15–20 if roads are under-detected</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-8017-acf2-da39eff02df0"><td id="q=ks" class=""><code>MIN_PATH_LEN_PIX</code></td><td id="dZLj" class=""><code>10</code></td><td id="{XHk" class="">Minimum skeleton path length in pixels; shorter fragments are discarded</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-804c-a159-fb61ccd8b9f9"><td id="q=ks" class=""><code>MODERN_BUFFER_DIST</code></td><td id="dZLj" class=""><code>30</code></td><td id="{XHk" class="">Historical segments must fall within this distance of a modern road to be kept (map units)</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="356f8ef7-31f6-80ec-94fb-e8901452b05c" class="">GeoJSON smoothing</h3></div><div style="display:contents" dir="ltr"><table id="356f8ef7-31f6-80bc-a044-d4d7e8a46938" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-802b-a454-e3d9581c618b"><th id="VWVZ" class="simple-table-header-color simple-table-header">Parameter</th><th id="xd;r" class="simple-table-header-color simple-table-header">Default</th><th id="~C]Q" class="simple-table-header-color simple-table-header">Description</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-809c-8477-f6fc7f4e1a4a"><td id="VWVZ" class=""><code>DECIMATE_STEP</code></td><td id="xd;r" class=""><code>3</code></td><td id="~C]Q" class="">Downsampling stride; larger values produce simpler lines</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-8005-a6f6-e777f51f37d2"><td id="VWVZ" class=""><code>SIMPLIFY_TOL</code></td><td id="xd;r" class=""><code>2.0</code></td><td id="~C]Q" class="">Shapely simplify tolerance</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-80ac-91ef-f4a05b172291"><td id="VWVZ" class=""><code>USE_CHAIKIN</code></td><td id="xd;r" class=""><code>True</code></td><td id="~C]Q" class="">Apply Chaikin curve smoothing</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-8049-9e38-fdd842d3ffeb"><td id="VWVZ" class=""><code>CHAIKIN_ITERS</code></td><td id="xd;r" class=""><code>2</code></td><td id="~C]Q" class="">Number of Chaikin smoothing iterations</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="356f8ef7-31f6-80d7-ab6b-cf1af8b1c3d4" class="">HIRONEX feature extraction</h3></div><div style="display:contents" dir="auto"><p id="356f8ef7-31f6-8086-9fd1-c28543c61c74" class="">These parameters control how road pixels are sampled from the TIF to compute visual features.</p></div><div style="display:contents" dir="ltr"><table id="356f8ef7-31f6-80ec-b5c7-d608a545d4dd" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-80b5-9c8e-d6f210290c2e"><th id="GoZN" class="simple-table-header-color simple-table-header">Parameter</th><th id="=Jj\" class="simple-table-header-color simple-table-header">Default</th><th id="@jGD" class="simple-table-header-color simple-table-header">Description</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-80a6-83ec-eca79a881568"><td id="GoZN" class=""><code>PIXEL_TOLERANCE</code></td><td id="=Jj\" class=""><code>2</code></td><td id="@jGD" class="">Pixel radius expanded outward from the road centreline</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-80e8-ad3a-fc463fb22b55"><td id="GoZN" class=""><code>CROSSSECT_DIST</code></td><td id="=Jj\" class=""><code>25</code></td><td id="@jGD" class="">Spacing between cross-section samples (map units)</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-80b6-ac09-e5c6b5720d41"><td id="GoZN" class=""><code>CROSSSECT_LENGTH</code></td><td id="=Jj\" class=""><code>200</code></td><td id="@jGD" class="">Length of each cross-section (map units); longer includes more background</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-805f-b4cf-c0c23abf7048"><td id="GoZN" class=""><code>SAMPLES_PER_SECTION</code></td><td id="=Jj\" class=""><code>21</code></td><td id="@jGD" class="">Number of sample points per cross-section</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-8049-ab41-f158544a93ff"><td id="GoZN" class=""><code>TARGET_BAND_LENGTH</code></td><td id="=Jj\" class=""><code>30</code></td><td id="@jGD" class="">Number of band rows used for ROI computation</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-8092-b868-c56883112a40"><td id="GoZN" class=""><code>RANDOM_SEED</code></td><td id="=Jj\" class=""><code>42</code></td><td id="@jGD" class="">Random seed for reproducibility</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="356f8ef7-31f6-8004-9aee-c99a8b4e347d" class="">Road comparison (historical vs modern)</h3></div><div style="display:contents" dir="ltr"><table id="356f8ef7-31f6-805d-bb82-fed8210ca65c" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-80be-9221-d6d5631937a2"><th id="dq{k" class="simple-table-header-color simple-table-header">Parameter</th><th id="Mt]b" class="simple-table-header-color simple-table-header">Default</th><th id="aF:d" class="simple-table-header-color simple-table-header">Description</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-8020-b0e9-d745008bb414"><td id="dq{k" class=""><code>BUFFER_DIST</code></td><td id="Mt]b" class=""><code>10</code></td><td id="aF:d" class="">Buffer distance (metres) for matching historical to modern roads. Increase to raise recall, but may introduce false positives</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-80cb-8ad6-ee18115207a4"><td id="dq{k" class=""><code>MIN_OVERLAP_RATIO</code></td><td id="Mt]b" class=""><code>0.3</code></td><td id="aF:d" class="">Minimum overlap ratio to classify a road as “persisted”. Lower this to mark more roads as persisted</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="356f8ef7-31f6-80f0-8bec-c438f58240a0" class="">Coordinate systems</h3></div><div style="display:contents" dir="ltr"><table id="356f8ef7-31f6-8063-bb90-de2361af7ccc" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-8092-83fc-c44811600f61"><th id="CYUT" class="simple-table-header-color simple-table-header">Parameter</th><th id="Pr:c" class="simple-table-header-color simple-table-header">Value</th><th id="DIDM" class="simple-table-header-color simple-table-header">Description</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-809d-82f2-fcc9c9b2e74f"><td id="CYUT" class=""><code>GEO_EPSG</code></td><td id="Pr:c" class=""><code>7844</code></td><td id="DIDM" class="">GDA2020 geographic (degrees) — matches the TIF’s native CRS</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-80d4-ba9e-eb5950692740"><td id="CYUT" class=""><code>METRIC_EPSG</code></td><td id="Pr:c" class=""><code>7855</code></td><td id="DIDM" class="">GDA2020 / MGA Zone 55 (metres) — used for all distance calculations</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><blockquote id="356f8ef7-31f6-8068-9353-d47fd834be2b" class="">If the maps are not from the Melbourne, Australia region, update both EPSG codes accordingly.</blockquote></div><div style="display:contents" dir="auto"><h3 id="356f8ef7-31f6-8030-8922-f84a4f2eef5d" class="">Loop detection &amp; connectivity repair</h3></div><div style="display:contents" dir="ltr"><table id="356f8ef7-31f6-8085-96fb-ca9355cd8237" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-8067-91cd-dab8aea631dc"><th id="L}ke" class="simple-table-header-color simple-table-header">Parameter</th><th id="=?iC" class="simple-table-header-color simple-table-header">Default</th><th id="^rLO" class="simple-table-header-color simple-table-header">Description</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-8041-8e2e-fd908d718de4"><td id="L}ke" class=""><code>CLOSE_EPS_M</code></td><td id="=?iC" class=""><code>1.0</code></td><td id="^rLO" class="">Max endpoint distance (metres) to consider a linestring closed</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-80bc-980b-e190b813ba57"><td id="L}ke" class=""><code>CANDIDATE_BUFFER_M</code></td><td id="=?iC" class=""><code>5.0</code></td><td id="^rLO" class="">Search radius around a loop when looking for touching roads (metres)</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-80eb-bca8-cbe657b6f4af"><td id="L}ke" class=""><code>RADIAL_CV_MAX</code></td><td id="=?iC" class=""><code>0.10</code></td><td id="^rLO" class="">Maximum radial coefficient of variation for a loop to be considered circular</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-8041-9305-e367e530ea8d"><td id="L}ke" class=""><code>ISO_CIRC_MIN</code></td><td id="=?iC" class=""><code>0.80</code></td><td id="^rLO" class="">Minimum isoperimetric circularity (closer to 1 = more circular)</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-80a4-98ca-ec913052d398"><td id="L}ke" class=""><code>JOIN_M</code></td><td id="=?iC" class=""><code>1.0</code></td><td id="^rLO" class="">Endpoint merge distance for connectivity component analysis (metres)</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="356f8ef7-31f6-80d8-8a66-fb0face03289" class="">OCR filter</h3></div><div style="display:contents" dir="ltr"><table id="356f8ef7-31f6-8092-9e92-e3d5ce0b183b" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-80d5-86fa-da21d5b5c6dc"><th id="I]?M" class="simple-table-header-color simple-table-header">Parameter</th><th id="Ldgf" class="simple-table-header-color simple-table-header">Default</th><th id="=:e?" class="simple-table-header-color simple-table-header">Description</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-80e7-9601-e8cd8d213a3d"><td id="I]?M" class=""><code>OCR_CONF_TH</code></td><td id="Ldgf" class=""><code>0.3</code></td><td id="=:e?" class="">Minimum OCR confidence score; detections below this are ignored</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-80d9-b2fe-dbe98bc894a6"><td id="I]?M" class=""><code>TEXT_BUF_PIX</code></td><td id="Ldgf" class=""><code>1.0</code></td><td id="=:e?" class="">Pixel expansion applied to each detected text bounding box</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-8008-b664-c7fd6d2ea27e"><td id="I]?M" class=""><code>OCR_RATIO_TH</code></td><td id="Ldgf" class=""><code>0.4</code></td><td id="=:e?" class="">A disappeared road is removed if its overlap with text regions exceeds this ratio. Raise to keep more roads</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="356f8ef7-31f6-8093-aa86-d98a8575fb6c" class="">Post-processing</h3></div><div style="display:contents" dir="ltr"><table id="356f8ef7-31f6-80a2-8cea-dcf3c5e548a3" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-80e2-8074-c31fdf707477"><th id="yYbM" class="simple-table-header-color simple-table-header">Parameter</th><th id="lvn&lt;" class="simple-table-header-color simple-table-header">Default</th><th id="axl:" class="simple-table-header-color simple-table-header">Description</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-8087-9bcb-d2f8586ad1d9"><td id="yYbM" class=""><code>PARALLEL_ANGLE_TH_DEG</code></td><td id="lvn&lt;" class=""><code>15</code></td><td id="axl:" class="">Two lines are considered parallel if their direction difference is below this angle (degrees)</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-8045-8373-f501f1ddaeb0"><td id="yYbM" class=""><code>REMOVE_FCLASSES_NEAR_RESIDENTIAL</code></td><td id="lvn&lt;" class=""><code>{trunk, residential, primary, tertiary}</code></td><td id="axl:" class="">Disappeared roads of these classes adjacent to a residential road are removed</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="356f8ef7-31f6-80c5-adb1-e44161a2fc76"/></div><div style="display:contents" dir="auto"><h2 id="356f8ef7-31f6-80db-a0df-f13b9d39a3ba" class="">6. Output Files</h2></div><div style="display:contents" dir="auto"><p id="356f8ef7-31f6-8073-be21-d509c687c5e8" class="">Results are written to <code>my-map/outputs/&lt;year&gt;/m&lt;id&gt;/</code>.</p></div><div style="display:contents" dir="auto"><h3 id="356f8ef7-31f6-802d-9e07-d321c4adba01" class="">Files</h3></div><div style="display:contents" dir="ltr"><table id="356f8ef7-31f6-8031-8f7d-ea9072d299bb" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-8094-9bff-f1556c5df888"><th id="~tId" class="simple-table-header-color simple-table-header">File</th><th id="}klm" class="simple-table-header-color simple-table-header" style="width:352px">Description</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-80b0-a174-f5f0553c3101"><td id="~tId" class=""><code>persisted.geojson</code></td><td id="}klm" class="" style="width:352px">Roads present in <strong>both</strong> historical and modern maps (from the modern road perspective)</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-8051-bd66-d2a8ded7ca4d"><td id="~tId" class=""><code>added.geojson</code></td><td id="}klm" class="" style="width:352px">Roads that <strong>appear</strong> in the modern map but are absent from the historical one</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-8094-b928-c259dbec38c3"><td id="~tId" class=""><code>disappeared.geojson</code></td><td id="}klm" class="" style="width:352px">Roads in the historical map that have <strong>disappeared</strong> (after post-processing cleanup)</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-80c1-b3b8-e3ed2791ef42"><td id="~tId" class=""><code>historical_all.geojson</code></td><td id="}klm" class="" style="width:352px">All historical roads with a <code>status</code> column (<code>both</code> / <code>disappeared</code>)</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-80a8-a1e3-f9dc09d55ddb"><td id="~tId" class=""><code>historical_db.geojson</code></td><td id="}klm" class="" style="width:352px">Merged persisted + disappeared database (before post-processing)</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-804f-8c98-fa184b9bab3f"><td id="~tId" class=""><code>historical_db_final.geojson</code></td><td id="}klm" class="" style="width:352px">Final version after parallel and residential filtering</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="356f8ef7-31f6-80e7-8fd5-c11e16cf8c90" class="">GeoJSON can directly import to QGIS</p></div><div style="display:contents" dir="auto"><h3 id="356f8ef7-31f6-80d8-a296-e8a6c905c61b" class="">Key GeoJSON properties</h3></div><div style="display:contents" dir="ltr"><table id="356f8ef7-31f6-8098-9e92-caf43ae393a8" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-80d7-b1fd-c714162e9bfb"><th id="_\pw" class="simple-table-header-color simple-table-header">Field</th><th id="caJ=" class="simple-table-header-color simple-table-header" style="width:446px">Description</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-8019-824c-e569cf8fd66d"><td id="_\pw" class=""><code>gid</code></td><td id="caJ=" class="" style="width:446px">Unique road identifier</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-8053-809f-d7c486ffe238"><td id="_\pw" class=""><code>osm_id</code></td><td id="caJ=" class="" style="width:446px">OpenStreetMap road ID</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-8081-ba4f-d78c6e1ffe19"><td id="_\pw" class=""><code>fclass</code></td><td id="caJ=" class="" style="width:446px">Road class (<code>residential</code> / <code>trunk</code> / <code>primary</code> / <code>tertiary</code> / <code>motorway</code> / <code>unclassified</code>)</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-80d0-8533-f7c4438752a4"><td id="_\pw" class=""><code>status</code></td><td id="caJ=" class="" style="width:446px"><code>both</code> (exists in both periods) or <code>disappeared</code></td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-80a8-b6ed-ce878e158701"><td id="_\pw" class=""><code>Pred</code></td><td id="caJ=" class="" style="width:446px">RF model prediction (<code>1</code> = road present in modern map, <code>0</code> = absent)</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-80d5-ade1-f40ab5cef168"><td id="_\pw" class=""><code>Var_line</code></td><td id="caJ=" class="" style="width:446px">HIRONEX feature: sequential pixel variation along the road</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-803b-aab5-c13640267785"><td id="_\pw" class=""><code>Edge_contrast</code></td><td id="caJ=" class="" style="width:446px">HIRONEX feature: colour contrast between road surface and surroundings</td></tr></div><div style="display:contents" dir="ltr"><tr id="356f8ef7-31f6-8044-a622-c2b4b75ecacf"><td id="_\pw" class=""><code>ROI</code></td><td id="caJ=" class="" style="width:446px">HIRONEX feature: road optical intensity (cross-section gradient integral)</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="356f8ef7-31f6-80e8-a663-c294ce2b5700"/></div><div style="display:contents" dir="auto"><h2 id="356f8ef7-31f6-80c1-971f-f356389bdac4" class="">7. Pipeline Diagram</h2></div><div style="display:contents" dir="auto"><pre id="356f8ef7-31f6-8059-ac60-d72300561bdf" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">Input: data/melway/&lt;year&gt;/m&lt;id&gt;.tif
+         │
+         ▼
+[Step 1] Palette TIF → RGBA TIF              (tif_converter.py)
+         │
+         ▼
+[Step 2] Colour matching + skeletonisation
+         → mel_roads_m&lt;id&gt;_old_2.geojson     (road_extractor.py)
+         │   skippable with --skip_extraction
+         ▼
+[Step 3] HIRONEX feature extraction
+         + Random Forest prediction (Pred: 0/1)  (feature_extractor.py)
+         │
+         ▼
+[Step 4a] Circular loop detection
+          → label propagation                (loop_detector.py)
+         │
+         ▼
+[Step 4b] Connectivity analysis
+          → promote Pred 0 → 1              (connectivity_fixer.py)
+         │
+         ▼
+[Step 5] Historical vs modern spatial comparison
+         → label each road: both / disappeared  (road_comparator.py)
+         │
+         ▼
+[Step 5.5] Enrich &quot;both&quot; rows with df_feat attributes
+         │
+         ▼
+[Step 6] OCR filter → remove text artefacts  (ocr_filter.py)
+         │
+         ▼
+[Step 7] Classify &amp; export
+         ├─ persisted.geojson
+         ├─ added.geojson
+         └─ disappeared.geojson
+         │
+         ▼
+[Step 8] Post-processing cleanup             (post_processor.py)
+         ├─ remove disappeared roads that are parallel &amp; shorter
+         ├─ remove specific classes adjacent to residential
+         └─ historical_db_final.geojson</code></pre></div><div style="display:contents" dir="auto"><hr id="356f8ef7-31f6-80b4-9801-f681e813fe38"/></div><div style="display:contents" dir="auto"><h2 id="357f8ef7-31f6-8092-9590-e3194367f446" class="">8. Module Reference (src/)</h2></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-8074-839d-c6bd1b700a4d" class="">This section describes what each Python file in <code>my-map/src/</code> does and which parts a developer is most likely to need to modify.</p></div><div style="display:contents" dir="auto"><hr id="357f8ef7-31f6-8038-9940-fb6aa4710063"/></div><div style="display:contents" dir="auto"><h3 id="357f8ef7-31f6-8090-ae92-eaf992ab688b" class=""><code>main.py</code> — Pipeline entry point</h3></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-80c2-aab6-f8e27539a817" class="">Parses CLI arguments (<code>--map_id</code>, <code>--year</code>, <code>--next_year</code>, <code>--skip_extraction</code>), then calls each stage in order. This is the only file that knows the full execution sequence.</p></div><div style="display:contents" dir="auto"><hr id="357f8ef7-31f6-8052-b389-ffc8dd6a260d"/></div><div style="display:contents" dir="auto"><h3 id="357f8ef7-31f6-803c-84c9-fc510e0e6f43" class=""><code>config.py</code> — Central configuration</h3></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-800c-b719-df8b8d571507" class="">Defines every tunable parameter in one place and the <code>get_paths()</code> function that resolves all file paths for a given <code>(map_id, year, next_year)</code> combination.</p></div><div style="display:contents" dir="auto"><hr id="357f8ef7-31f6-80ff-b0ea-d0a81623fad9"/></div><div style="display:contents" dir="auto"><h3 id="357f8ef7-31f6-8086-86ed-ec5116b59f6f" class=""><code>tif_converter.py</code> — Palette TIF → RGBA TIF (Step 1)</h3></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-8095-ae5a-c031845badd9" class="">Reads a single-band indexed-colour GeoTIFF and expands the palette into a 4-band RGBA GeoTIFF. This is always the first step because all later image-processing works on RGB pixel values.</p></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-8060-a73a-c499f359f64d" class=""><strong>Key function:</strong> <code>palette_to_rgba(src_path, dst_path)</code></p></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-80a4-8320-d165ed01851b" class=""><strong>When to modify:</strong> if the source TIFs use a different colour encoding (e.g. already RGB, or 16-bit).</p></div><div style="display:contents" dir="auto"><hr id="357f8ef7-31f6-809f-a68b-fb97187003e7"/></div><div style="display:contents" dir="auto"><h3 id="357f8ef7-31f6-80a7-866c-d84abe12483f" class=""><code>road_extractor.py</code> — Colour masking + skeletonisation (Step 2)</h3></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-8025-ade9-f2e1e91d87ea" class="">The most complex image-processing stage:</p></div><div style="display:contents" dir="auto"><ol type="1" id="357f8ef7-31f6-8048-be01-d39b0a11bbed" class="numbered-list" start="1"><li>Reads the RGBA TIF and converts it to BGR.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="357f8ef7-31f6-802c-bb59-f1709347919f" class="numbered-list" start="2"><li>For each road class (<code>residential</code>, <code>trunk</code>, <code>primary</code>, <code>tertiary</code>, <code>motorway</code>, <code>unclassified</code>), applies a colour-tolerance mask and morphological cleanup.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="357f8ef7-31f6-80ae-bbff-e75ae5d532fc" class="numbered-list" start="3"><li>Skeletonises each mask with <code>skimage.morphology.skeletonize</code>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="357f8ef7-31f6-8012-a7c3-e82048ea3ea7" class="numbered-list" start="4"><li>Traces the skeleton pixels into polyline segments, splitting at junctions.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="357f8ef7-31f6-80a7-8669-c51254a8aad3" class="numbered-list" start="5"><li>Filters segments against a modern-road spatial prior (proximity threshold <code>MODERN_BUFFER_DIST</code>).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="357f8ef7-31f6-803c-880b-f4f2c50cf0a0" class="numbered-list" start="6"><li>Smooths and exports as <code>mel_roads_m&lt;id&gt;_old_2.geojson</code>.</li></ol></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-8043-a1c0-e6b6091b062a" class=""><strong>Key function:</strong> <code>run(paths, cfg)</code> — called by <code>main.py</code>.</p></div><div style="display:contents" dir="auto"><hr id="357f8ef7-31f6-8085-af83-d1289d80abbd"/></div><div style="display:contents" dir="auto"><h3 id="357f8ef7-31f6-8012-aeba-e55db5ba4b64" class=""><code>feature_extractor.py</code> — HIRONEX feature extraction + RF prediction (Step 3)</h3></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-80e4-b26c-d04968390e34" class="">For each modern road segment:</p></div><div style="display:contents" dir="auto"><ol type="1" id="357f8ef7-31f6-80e2-882a-f2cad7ac085a" class="numbered-list" start="1"><li>Samples RGB pixel values along the road centreline and on cross-sections perpendicular to it.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="357f8ef7-31f6-80dd-b4fa-f1548d8afa73" class="numbered-list" start="2"><li>Computes three HIRONEX visual features: <code>Var_line</code> (along-line pixel variation), <code>Edge_contrast</code> (road-vs-background colour contrast), and <code>ROI</code> (cross-section gradient integral).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="357f8ef7-31f6-8091-815e-d1f24a81bf7d" class="numbered-list" start="3"><li>Loads the pre-trained Random Forest model and predicts <code>Pred</code> (1 = road visually present in the TIF, 0 = absent).</li></ol></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-8066-b4ab-f54685356e6c" class="">Returns a GeoDataFrame <code>df_feat</code> used by all later comparison stages.</p></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-805d-9ed7-dd1f8c09e06d" class=""><strong>Key function:</strong> <code>extract_features(src, modern_path, geo_crs, metric_crs)</code></p></div><div style="display:contents" dir="auto"><hr id="357f8ef7-31f6-803e-b043-f9294c578069"/></div><div style="display:contents" dir="auto"><h3 id="357f8ef7-31f6-8059-afca-e8ba3ddea153" class=""><code>loop_detector.py</code> — Circular loop detection (Step 4a)</h3></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-804f-8761-e4d86f25f85f" class="">Identifies road segments that form closed circular loops (e.g. roundabouts, cul-de-sac turning circles). If any segment in a loop group is predicted as Pred=0, the whole group is forced to Pred=1, because a partially-missing ring is geometrically implausible.</p></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-8087-88a5-c4122fe81b7a" class=""><strong>Key functions:</strong><br/>- <code>detect_circular_loops(df_feat)</code> — finds loop groups.<br/>- <code>apply_loop_label_propagation(df_feat, loop_groups)</code> — flips Pred for affected segments.</p></div><div style="display:contents" dir="auto"><hr id="357f8ef7-31f6-802f-a0f8-d53ea76627b4"/></div><div style="display:contents" dir="auto"><h3 id="357f8ef7-31f6-80aa-bc6e-e6c0ccde5dd1" class=""><code>connectivity_fixer.py</code> — Connectivity-based label promotion (Step 4b)</h3></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-80c8-a49e-c1ffb170f138" class="">Examines the road network topology. A contiguous group of Pred=0 segments that bridges two distinct Pred=1 endpoints (one at each end) is promoted to Pred=1 — because a gap in the middle of a real road is implausible.</p></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-8081-8489-c6468081bff5" class=""><strong>Key function:</strong> <code>fix_connectivity(df_feat)</code></p></div><div style="display:contents" dir="auto"><hr id="357f8ef7-31f6-80ae-bd65-d5b82106223e"/></div><div style="display:contents" dir="auto"><h3 id="357f8ef7-31f6-80b5-9cb6-c5e2f5f36bc6" class=""><code>road_comparator.py</code> — Historical vs modern comparison (Step 5)</h3></div><div style="display:contents" dir="auto"><ol type="1" id="357f8ef7-31f6-809e-b067-cbeed24ba130" class="numbered-list" start="1"><li>Loads the historical GeoJSON and fixes any invalid CRS.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="357f8ef7-31f6-80b0-82fd-dca8983b37d2" class="numbered-list" start="2"><li>Buffers each historical segment by <code>BUFFER_DIST</code> metres and checks how much of it overlaps with Pred=1 modern roads.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="357f8ef7-31f6-80d5-bb16-f9e847d36c16" class="numbered-list" start="3"><li>Assigns <code>status = &quot;both&quot;</code> if overlap ≥ <code>MIN_OVERLAP_RATIO</code>, else <code>&quot;disappeared&quot;</code>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="357f8ef7-31f6-808d-af96-fe9fe59bbe0c" class="numbered-list" start="4"><li>Enriches <code>&quot;both&quot;</code> rows with attributes from <code>df_feat</code> (Step 5.5).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="357f8ef7-31f6-8032-a422-c9ddfe2cba81" class="numbered-list" start="5"><li>Classifies modern roads into <code>persisted</code> / <code>added</code>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="357f8ef7-31f6-8033-812d-f6358d3baf8b" class="numbered-list" start="6"><li>Exports <code>persisted.geojson</code>, <code>added.geojson</code>, <code>disappeared.geojson</code>, and <code>historical_all.geojson</code>.</li></ol></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-8013-961f-f0e78fb8aad5" class=""><strong>Key functions:</strong> <code>compare_historical_modern()</code>, <code>enrich_historical_with_features()</code>, <code>classify_changes()</code>, <code>export_results()</code>, <code>build_and_export_historical_db()</code></p></div><div style="display:contents" dir="auto"><hr id="357f8ef7-31f6-8051-862d-edbf7605b00a"/></div><div style="display:contents" dir="auto"><h3 id="357f8ef7-31f6-8035-8e20-c5e3373acc11" class=""><code>ocr_filter.py</code> — Text artefact removal (Step 6)</h3></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-80fe-94b6-f7b94a9813eb" class="">Runs EasyOCR on the RGBA TIF to detect text regions (road labels, suburb names, etc.). Any <code>disappeared</code> road whose geometry overlaps a text polygon by more than <code>OCR_RATIO_TH</code> is removed — these are skeleton artefacts caused by dark map text being misdetected as roads.</p></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-805a-a4a6-c69b21cf6427" class="">If <code>easyocr</code> is not installed the filter is silently skipped.</p></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-80ff-9a2c-ded007492618" class=""><strong>Key function:</strong> <code>remove_text_artefacts(historical, rgba_tif_path, ...)</code></p></div><div style="display:contents" dir="auto"><hr id="357f8ef7-31f6-80c9-92bb-cfc956410728"/></div><div style="display:contents" dir="auto"><h3 id="357f8ef7-31f6-80e8-8979-f05e01d679b5" class=""><code>post_processor.py</code> — Final cleanup (Step 8)</h3></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-8011-b708-c1005314b186" class="">Two independent cleanup passes on <code>historical_db</code> before final export:</p></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-8094-93ee-de8821264b4a" class=""><strong>A. Parallel + shorter filter</strong> — if a <code>disappeared</code> segment runs parallel (within <code>PARALLEL_ANGLE_TH_DEG</code>) to a non-disappeared neighbour and is shorter, it is dropped as a likely duplicate extraction artefact.</p></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-80f8-927d-dc4fc9780556" class=""><strong>B. Residential-adjacent filter</strong> — <code>disappeared</code> roads of certain classes (<code>trunk</code>, <code>primary</code>, <code>tertiary</code>, <code>residential</code>) that are adjacent to a residential road are removed, as these typically represent mis-classified service ramps or alley artefacts.</p></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-80ef-94f5-c289f5b95d77" class=""><strong>Key function:</strong> <code>clean_historical_db(historical_db)</code></p></div><div style="display:contents" dir="auto"><hr id="357f8ef7-31f6-8095-a11a-c148fa6690ea"/></div><div style="display:contents" dir="auto"><h3 id="357f8ef7-31f6-80a1-a91d-fff84bd97e29" class=""><code>logger.py</code> — Logging setup</h3></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-80b7-b09c-fd21b2afd361" class="">Sets up a module-level logger that writes to both stdout (INFO level) and a timestamped file in <code>logs/</code> (DEBUG level). Each pipeline invocation creates a fresh log file.</p></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-8024-987a-c33a7ea795f8" class=""><strong>Key function:</strong> <code>get_logger(name)</code> — import and call this at the top of any new module.</p></div><div style="display:contents" dir="auto"><hr id="357f8ef7-31f6-80c1-bd30-ca6c25ec433a"/></div><div style="display:contents" dir="auto"><h3 id="357f8ef7-31f6-8054-b283-c62934ac57ef" class=""><code>utils.py</code> — Shared helpers</h3></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-8057-983f-ca854579d3cc" class="">Utility functions used across multiple modules:</p></div><div style="display:contents" dir="ltr"><table id="357f8ef7-31f6-807a-9d9f-e5fb03ce931c" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="357f8ef7-31f6-80f9-8851-d5d91c29571f"><th id="k&gt;E@" class="simple-table-header-color simple-table-header">Function</th><th id="cZAp" class="simple-table-header-color simple-table-header">Used by</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="357f8ef7-31f6-80f0-9f0c-ef101ded9168"><td id="k&gt;E@" class=""><code>pix_to_xy(transform, r, c)</code></td><td id="cZAp" class=""><code>road_extractor</code></td></tr></div><div style="display:contents" dir="ltr"><tr id="357f8ef7-31f6-80cc-8c98-c4c0f08070d8"><td id="k&gt;E@" class=""><code>sample_raster_rgb(src, xy_list)</code></td><td id="cZAp" class=""><code>feature_extractor</code></td></tr></div><div style="display:contents" dir="ltr"><tr id="357f8ef7-31f6-80c9-a46d-d2f7c4dd2e9e"><td id="k&gt;E@" class=""><code>compute_roi_from_band(rgb_band_3d, ...)</code></td><td id="cZAp" class=""><code>feature_extractor</code></td></tr></div><div style="display:contents" dir="ltr"><tr id="357f8ef7-31f6-807f-b9b9-e7758f6f04b9"><td id="k&gt;E@" class=""><code>compute_hironex_roi_for_line(geom, src, ...)</code></td><td id="cZAp" class=""><code>feature_extractor</code></td></tr></div><div style="display:contents" dir="ltr"><tr id="357f8ef7-31f6-8090-8f75-e7c240d8ad42"><td id="k&gt;E@" class=""><code>to_unit_vec(vx, vy)</code></td><td id="cZAp" class=""><code>feature_extractor</code></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="357f8ef7-31f6-80b9-8f6e-fce5964834c6"/></div><div style="display:contents" dir="auto"><h2 id="356f8ef7-31f6-80cc-a49b-f0ac2ac25027" class="">9. Troubleshooting</h2></div><div style="display:contents" dir="auto"><h3 id="356f8ef7-31f6-8022-946b-cda293d1bc0f" class="">RGBA TIF not found</h3></div><div style="display:contents" dir="auto"><pre id="356f8ef7-31f6-804c-bd5c-cb01cc6ad8e4" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">FileNotFoundError: m007_rgba.tif not found</code></pre></div><div style="display:contents" dir="auto"><p id="356f8ef7-31f6-80af-b978-cabd9476217d" class=""><code>tif_converter.palette_to_rgba()</code> generates this file automatically on the first run. If the original palette TIF <code>data/melway/&lt;year&gt;/m&lt;id&gt;.tif</code> is missing, place it in the correct path and re-run.</p></div><div style="display:contents" dir="auto"><h3 id="356f8ef7-31f6-80ce-88b0-f0ff134dde56" class="">Historical road output is empty (0 features)</h3></div><div style="display:contents" dir="auto"><p id="356f8ef7-31f6-8090-b7b6-f0e8b07759d3" class="">Possible causes:</p></div><div style="display:contents" dir="auto"><ol type="1" id="356f8ef7-31f6-8062-aff4-d48c0da77715" class="numbered-list" start="1"><li>Colour mismatch → increase <code>COLOR_TOLERANCE</code> (e.g. 15–20)</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="356f8ef7-31f6-8093-8522-c3ab919a73b1" class="numbered-list" start="2"><li>Paths too short → decrease <code>MIN_PATH_LEN_PIX</code> (e.g. 5)</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="356f8ef7-31f6-808d-8be2-feb09db37b2a" class="numbered-list" start="3"><li>All segments filtered by the modern-road proximity check → increase <code>MODERN_BUFFER_DIST</code></li></ol></div><div style="display:contents" dir="auto"><h3 id="356f8ef7-31f6-80b9-9865-c8deb02702c8" class="">CRS warning on historical GeoJSON</h3></div><div style="display:contents" dir="auto"><pre id="356f8ef7-31f6-8080-be1a-d0e844907300" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">⚠️ Fixing: historical CRS is invalid (LOCAL_CS), forcing EPSG:7844</code></pre></div><div style="display:contents" dir="auto"><p id="356f8ef7-31f6-80b7-a144-f309692098de" class="">This is expected behaviour. When <code>mel_roads_m&lt;id&gt;_old_2.geojson</code> has incomplete CRS metadata, the pipeline automatically falls back to EPSG:7844. It does not affect the results.</p></div><div style="display:contents" dir="auto"><h3 id="356f8ef7-31f6-804e-b553-cd9b6913bbb6" class="">OCR is removing too many roads</h3></div><div style="display:contents" dir="auto"><p id="356f8ef7-31f6-803d-b357-cfef722ca561" class="">Adjust <code>OCR_RATIO_TH</code> (default <code>0.4</code>):<br/>- Raise it (e.g. <code>0.6</code>) → only remove roads with more than 60% overlap with text regions<br/>- Raise <code>OCR_CONF_TH</code> (e.g. <code>0.6</code>) → only trust high-confidence OCR detections</p></div><div style="display:contents" dir="auto"><h3 id="356f8ef7-31f6-803e-95bf-deb686d6b4d3" class="">Missing modern road reference for historical years</h3></div><div style="display:contents" dir="auto"><pre id="356f8ef7-31f6-8006-bd8e-e18f66096dad" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">FileNotFoundError: outputs/2011/m007/historical_db.geojson</code></pre></div><div style="display:contents" dir="auto"><p id="356f8ef7-31f6-8058-a7c1-cee563248743" class="">Processing 2006 requires the 2011 outputs to already exist. Run years in order: 2011 first, then 2006, then 2001.</p></div><div style="display:contents" dir="auto"><h3 id="356f8ef7-31f6-80bd-b40c-fb676f0af5b4" class="">Wrong model path</h3></div><div style="display:contents" dir="auto"><p id="356f8ef7-31f6-80fe-94b4-d27664034c49" class="">Confirm that <code>models/rf_model_20251110.joblib</code> exists. If your model file has a different name, update <code>config.py</code>:</p></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js" integrity="sha512-AKaNmg8COK0zEbjTdMHJAPJ0z6VeNqvRvH4/d5M4sHJbQQUToMBtodq4HaV4fa+WV2UTfoperElm66c9/8cKmQ==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><pre id="356f8ef7-31f6-80e1-9b72-e02716431c00" class="code code-wrap"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">MODEL_FILENAME = &quot;rf_model_20251110.joblib&quot;  # ← set to your actual filename</code></pre></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-8066-bf06-fddd2a49c37e" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="357f8ef7-31f6-803c-98d6-ffd7a93d8f6b" class="">Web Demo</h1></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-80bf-8324-d1784471b750" class=""><a href="https://github.com/anonymous-road-atlas/melway/">https://github.com/anonymous-road-atlas/melway/</a></p></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-8071-9d2b-d9e0d3685fd5" class="">An interactive web map that visualises how Melbourne’s road network changed across four decades, using Melway historical map data compared against a modern road network.</p></div><div style="display:contents" dir="auto"><hr id="357f8ef7-31f6-80d2-89d0-daba3e8c4875"/></div><div style="display:contents" dir="auto"><h2 id="357f8ef7-31f6-800c-83fa-dbd672766e84" class="">Quick Start</h2></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-8027-9c2f-da78571b7bc4" class="">Because the page fetches local GeoJSON files via <code>fetch()</code>, you must serve it through an HTTP server — browsers block direct <code>file://</code> access.</p></div><div style="display:contents" dir="auto"><h3 id="357f8ef7-31f6-80fc-a6f0-d5b5b6177889" class="">Option 1 — Python (no install required)</h3></div><div style="display:contents" dir="auto"><pre id="357f8ef7-31f6-80c9-97d2-e5daaa8d0cf2" class="code code-wrap"><code class="language-bash" style="white-space:pre-wrap;word-break:break-all">cd my-map
+python3 -m http.server 8080</code></pre></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-803f-8199-c66d806064a3" class="">Open your browser at <strong>http://localhost:8080</strong></p></div><div style="display:contents" dir="auto"><h3 id="357f8ef7-31f6-80e3-b390-e708ef3cff40" class="">Option 2 — Node.js</h3></div><div style="display:contents" dir="auto"><pre id="357f8ef7-31f6-805f-9c77-c130cca17114" class="code code-wrap"><code class="language-bash" style="white-space:pre-wrap;word-break:break-all">npx serve my-map</code></pre></div><div style="display:contents" dir="auto"><h3 id="357f8ef7-31f6-8002-86e5-cf53a36a6ef8" class="">Option 3 — VS Code Live Server</h3></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-8034-8807-f58dd1168182" class="">Right-click <code>index.html</code> → <strong>Open with Live Server</strong>.</p></div><div style="display:contents" dir="auto"><hr id="357f8ef7-31f6-8069-9080-e5dbc0bb905b"/></div><div style="display:contents" dir="auto"><h2 id="357f8ef7-31f6-80e4-889f-e4c4e10969a8" class="">Interface Overview</h2></div><div style="display:contents" dir="ltr"><figure id="357f8ef7-31f6-8083-8b63-eb3de2524e66" class="image"><a href="tutorial-images/image%203.png"><img style="width:703.9904174804688px" src="tutorial-images/image%203.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="357f8ef7-31f6-801f-a0ea-ebd8eee6124f"/></div><div style="display:contents" dir="auto"><h2 id="357f8ef7-31f6-80a8-9312-fed92e051cd3" class="">Controls</h2></div><div style="display:contents" dir="auto"><h3 id="357f8ef7-31f6-80ea-97cd-d1bc45a8fb8b" class="">Year Buttons</h3></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-8048-8b05-ce054d1b6b6b" class="">Switches the active dataset to a different historical snapshot.</p></div><div style="display:contents" dir="ltr"><table id="357f8ef7-31f6-80f8-a8c0-e5d0408be432" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="357f8ef7-31f6-8029-ab79-dd1aae7f6b53"><th id="@rwa" class="simple-table-header-color simple-table-header">Button</th><th id="aR\b" class="simple-table-header-color simple-table-header">Data year</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="357f8ef7-31f6-800c-ad3c-f0700dcf7b15"><td id="@rwa" class="">2001</td><td id="aR\b" class="">Earliest snapshot</td></tr></div><div style="display:contents" dir="ltr"><tr id="357f8ef7-31f6-80f2-9af4-e6042d141030"><td id="@rwa" class="">2006</td><td id="aR\b" class="">—</td></tr></div><div style="display:contents" dir="ltr"><tr id="357f8ef7-31f6-80e7-97f4-edb595c70ca9"><td id="@rwa" class="">2011</td><td id="aR\b" class="">—</td></tr></div><div style="display:contents" dir="ltr"><tr id="357f8ef7-31f6-8026-89dc-e865ead6fdd6"><td id="@rwa" class="">2020</td><td id="aR\b" class="">Default (loaded on startup)</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-8006-8a96-cb1ecc080924" class="">Clicking a year button:<br/>1. Removes all currently rendered road layers from the map.<br/>2. Reads <code>melway_outputs/&lt;year&gt;/blocks.json</code> to discover which map blocks exist.<br/>3. Loads <code>historical_db_final.geojson</code> (grey base layer) for every block — always visible.<br/>4. Loads <code>added</code>, <code>persisted</code>, and <code>disappeared</code> GeoJSON for every block — shown only if the corresponding toggle is active.</p></div><div style="display:contents" dir="auto"><blockquote id="357f8ef7-31f6-803d-ba7a-cbc296fbbbe0" class="">The map viewport is <strong>not</strong> reset when switching years, so you can compare the same area across time.</blockquote></div><div style="display:contents" dir="auto"><hr id="357f8ef7-31f6-806d-b061-c02280b978b9"/></div><div style="display:contents" dir="auto"><h3 id="357f8ef7-31f6-8068-9329-c9943de0b2a6" class="">Layer Toggle Buttons</h3></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-8004-9e70-f3da9de3c69d" class="">These three buttons independently show or hide a road change category.</p></div><div style="display:contents" dir="ltr"><table id="357f8ef7-31f6-80ec-a518-d7b9fcc89448" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="357f8ef7-31f6-807e-a73e-dbea606c79f8"><th id="B|br" class="simple-table-header-color simple-table-header">Button</th><th id="sCS&lt;" class="simple-table-header-color simple-table-header">Colour</th><th id="ba`_" class="simple-table-header-color simple-table-header">Meaning</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="357f8ef7-31f6-800c-b55a-c3fa5535d209"><td id="B|br" class=""><strong>Added</strong></td><td id="sCS&lt;" class="">Blue <code>#007bff</code></td><td id="ba`_" class="">Road appears in the selected year but not in the previous snapshot</td></tr></div><div style="display:contents" dir="ltr"><tr id="357f8ef7-31f6-803a-8c4a-ef384b0f2bec"><td id="B|br" class=""><strong>Remained</strong></td><td id="sCS&lt;" class="">Green <code>#40be7f</code></td><td id="ba`_" class="">Road exists in both the previous and selected year</td></tr></div><div style="display:contents" dir="ltr"><tr id="357f8ef7-31f6-80a3-9668-ca2972cd7c9a"><td id="B|br" class=""><strong>Disappeared</strong></td><td id="sCS&lt;" class="">Red <code>#ff0000</code></td><td id="ba`_" class="">Road existed historically but is absent in the selected year</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-8096-bf80-d5ba82bc615a" class="">The grey base layer (<strong>Historical DB</strong>) is always visible and cannot be toggled off.</p></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-800f-959e-e7ebf1518553" class="">Clicking a toggle button switches it on or off without moving the map or reloading data.</p></div><div style="display:contents" dir="auto"><hr id="357f8ef7-31f6-8041-b2d1-d4fd4a34d7e2"/></div><div style="display:contents" dir="auto"><h3 id="357f8ef7-31f6-805c-8740-f223a7d628d6" class="">Focus Area Buttons</h3></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-802d-b008-c30ddb085edd" class="">Instantly fly the camera to a pre-defined region of Melbourne.</p></div><div style="display:contents" dir="ltr"><table id="357f8ef7-31f6-80e8-83f6-ca613383850b" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="357f8ef7-31f6-8046-b931-e3a43f248daf"><th id="~GpW" class="simple-table-header-color simple-table-header">Button</th><th id="vsfo" class="simple-table-header-color simple-table-header">Area</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="357f8ef7-31f6-80f4-a58f-c32efd314763"><td id="~GpW" class="">CBD</td><td id="vsfo" class="">Central Business District</td></tr></div><div style="display:contents" dir="ltr"><tr id="357f8ef7-31f6-80f6-892b-d33fb76cc842"><td id="~GpW" class="">North</td><td id="vsfo" class="">North Melbourne (around m003)</td></tr></div><div style="display:contents" dir="ltr"><tr id="357f8ef7-31f6-80d8-9247-ea55a59ae1ca"><td id="~GpW" class="">South</td><td id="vsfo" class="">Southern suburbs (around m168)</td></tr></div><div style="display:contents" dir="ltr"><tr id="357f8ef7-31f6-80ee-9241-f417e8d44594"><td id="~GpW" class="">West</td><td id="vsfo" class="">Western suburbs (around m220)</td></tr></div><div style="display:contents" dir="ltr"><tr id="357f8ef7-31f6-8076-aff7-cf0bec83abf8"><td id="~GpW" class="">East</td><td id="vsfo" class="">Eastern suburbs (around m121)</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-80ca-bcc8-e709ce96f9cd" class="">These use Leaflet’s <code>flyToBounds()</code> for a smooth animated pan/zoom.</p></div><div style="display:contents" dir="auto"><hr id="357f8ef7-31f6-809e-94be-d559496e7ee8"/></div><div style="display:contents" dir="auto"><h2 id="357f8ef7-31f6-806a-b771-d8d6e41ac4d7" class="">Data Structure</h2></div><div style="display:contents" dir="auto"><pre id="357f8ef7-31f6-8089-8a2c-e87ff4032479" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">melway_outputs/
+└── &lt;year&gt;/                        # 2001 | 2006 | 2011 | 2020
+    ├── blocks.json                # [&quot;m003&quot;, &quot;m007&quot;, &quot;m043&quot;, ...]
+    └── &lt;block&gt;/                   # one directory per map sheet
+        ├── historical_db_final.geojson   # base road network (always shown)
+        ├── added.geojson
+        ├── persisted.geojson
+        └── disappeared.geojson</code></pre></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-8006-934e-ee8ba0b1d4e9" class=""><code>blocks.json</code> controls which blocks are loaded for each year — missing blocks or missing files are silently skipped, so partial datasets work fine.</p></div><div style="display:contents" dir="auto"><hr id="357f8ef7-31f6-808f-bfc5-f9ba6f562adb"/></div><div style="display:contents" dir="auto"><h2 id="357f8ef7-31f6-8088-8cab-df0e48fbbb58" class="">How the Loading Works (Technical)</h2></div><div style="display:contents" dir="auto"><ol type="1" id="357f8ef7-31f6-808b-9cde-cfac62fba074" class="numbered-list" start="1"><li><code>loadYear(year)</code> is called on startup with <code>&quot;2020&quot;</code>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="357f8ef7-31f6-8015-940a-f40fff966eb4" class="numbered-list" start="2"><li>It fetches <code>melway_outputs/2020/blocks.json</code> → gets an array of block IDs.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="357f8ef7-31f6-80de-9e8a-fc42e74b86c9" class="numbered-list" start="3"><li>For each block, six <code>fetch()</code> calls fire in parallel:<div style="display:contents" dir="auto"><ul id="357f8ef7-31f6-8037-8aa5-ecbaef286852" class="bulleted-list"><li style="list-style-type:disc"><code>historical_db_final.geojson</code> → rendered immediately, added to the map.</li></ul></div><div style="display:contents" dir="auto"><ul id="357f8ef7-31f6-8047-9be7-e29e22ccb074" class="bulleted-list"><li style="list-style-type:disc"><code>added</code>, <code>persisted</code>, <code>disappeared</code> → stored in memory, added to the map only if the toggle is active.</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="357f8ef7-31f6-8072-b466-ff26d979a561" class="numbered-list" start="4"><li>After 300 ms, the map auto-fits its viewport to the loaded base layers (only on first load).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="357f8ef7-31f6-8097-b26c-cb239b803067" class="numbered-list" start="5"><li>Subsequent <code>loadYear()</code> calls clear the previous layers and repeat steps 2–3. The viewport is not changed.</li></ol></div><div style="display:contents" dir="auto"><hr id="357f8ef7-31f6-805e-81dd-d740689d93ce"/></div><div style="display:contents" dir="auto"><h2 id="357f8ef7-31f6-8068-9a19-e817ef196a0a" class="">Adding a New Year</h2></div><div style="display:contents" dir="auto"><ol type="1" id="357f8ef7-31f6-80cf-816f-d7a2edc664d7" class="numbered-list" start="1"><li>Create <code>melway_outputs/&lt;new_year&gt;/</code>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="357f8ef7-31f6-809e-acb1-dbd00f87b8c4" class="numbered-list" start="2"><li>Add <code>blocks.json</code>:<div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js" integrity="sha512-QXFMVAusM85vUYDaNgcYeU3rzSlc+bTV4JvkfJhjxSHlQEo+ig53BtnGkvFTiNJh8D+wv6uWAQ2vJaVmxe8d3w==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><pre id="357f8ef7-31f6-8017-8872-daa0e21d66fd" class="code code-wrap"><code class="language-json" style="white-space:pre-wrap;word-break:break-all">[&quot;m003&quot;, &quot;m007&quot;]</code></pre></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="357f8ef7-31f6-808f-894a-fa1158a6ebeb" class="numbered-list" start="3"><li>Add the four GeoJSON files for each block.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="357f8ef7-31f6-8032-94cd-e3511c557529" class="numbered-list" start="4"><li>Register the year in <code>index.html</code> (line ~196):<div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-jsx.min.js" integrity="sha512-m3JYEI6gx5fh9jF10FjGoMzVKcV2N6nchcDcqPCdI1L3R2WQV7br2XVNR8iTLb2daOMRl3zldbcfT40xU2ntVw==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><pre id="357f8ef7-31f6-80a2-8ae5-c2f8a37cb65b" class="code code-wrap"><code class="language-jsx" style="white-space:pre-wrap;word-break:break-all">const years = [&quot;2001&quot;, &quot;2006&quot;, &quot;2011&quot;, &quot;2020&quot;, &quot;&lt;new_year&gt;&quot;];</code></pre></div></li></ol></div><div style="display:contents" dir="auto"><hr id="357f8ef7-31f6-80b9-a7d6-c046676c697f"/></div><div style="display:contents" dir="auto"><h2 id="357f8ef7-31f6-8078-ab7f-c81021d1770a" class="">Adding a New Focus Area</h2></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-8089-9ba3-d7d08ca2c30d" class="">In <code>index.html</code>, follow this pattern:</p></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-8096-b02e-c5ee1d89120b" class=""><strong>HTML</strong> — add a button inside the Focus Areas <code>controls-row</code>:</p></div><div style="display:contents" dir="auto"><pre id="357f8ef7-31f6-8063-95cf-d546dfe0b226" class="code code-wrap"><code class="language-html" style="white-space:pre-wrap;word-break:break-all">&lt;button id=&quot;btnMyArea&quot; type=&quot;button&quot; class=&quot;btn btn-outline-dark focus-btn&quot;&gt;
+  My Area
+&lt;/button&gt;</code></pre></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-8093-a0d9-c080e7de4e02" class=""><strong>JS</strong> — define bounds and wire the click handler:</p></div><div style="display:contents" dir="auto"><pre id="357f8ef7-31f6-8009-ac07-cb3f650f9cc3" class="code code-wrap"><code class="language-jsx" style="white-space:pre-wrap;word-break:break-all">const myAreaBounds = L.latLngBounds(
+  [-37.90, 144.90],   // [south, west]
+  [-37.80, 145.00]    // [north, east]
+);
+
+document.getElementById(&quot;btnMyArea&quot;).addEventListener(&quot;click&quot;, () =&gt; {
+  setActiveFocusButton(&quot;btnMyArea&quot;);
+  map.flyToBounds(myAreaBounds, { padding: [20, 20] });
+});</code></pre></div><div style="display:contents" dir="auto"><p id="357f8ef7-31f6-80ad-a667-ec9ad3d2cfad" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span>
+</div>
+</body>
+</html>

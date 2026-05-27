@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Melway Road Change Timeline</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Leaflet -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    />
+
+    <style>
+      /* ── Site nav ── */
+      .site-nav {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: #fff;
+        border-bottom: 1px solid #dee2e6;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      }
+      .site-nav-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .site-nav-brand {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #212529;
+        letter-spacing: 0.01em;
+      }
+      .site-nav-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+      .site-nav-links a {
+        font-size: 0.88rem;
+        color: #6c757d;
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .site-nav-links a:hover,
+      .site-nav-links a.active {
+        color: #212529;
+      }
+    </style>
+
+    <style>
+      #map {
+        width: 100%;
+        height: 60vh; /* 佔畫面 60% 高 */
+        min-height: 420px;
+      }
+
+      .controls-card {
+        background: #f8f9fa;
+        border: 1px solid #e5e7eb;
+      }
+
+      .controls-label {
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #6c757d;
+      }
+
+      .controls-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+      }
+
+      @media (min-width: 992px) {
+        .controls-divider {
+          align-self: stretch;
+          width: 0;
+          border-left: 1px solid #dee2e6;
+          margin: 0 1rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="site-nav">
+      <div class="site-nav-inner">
+        <span class="site-nav-brand">Melway Road Atlas</span>
+        <div class="site-nav-links">
+          <a href="index.html" class="active">Demo</a>
+          <a href="tutorial.html">Tutorial</a>
+          <a href="https://github.com/anonymous-road-atlas/melway" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid mt-3">
+      <!-- 地圖 -->
+      <div class="row">
+        <div class="col justify-content-center align-items-center">
+          <div id="map"></div>
+        </div>
+      </div>
+
+      <!-- 控制區 -->
+      <div class="row justify-content-center mt-4">
+        <div class="col-12 col-lg-10">
+          <div class="card p-3 shadow-sm controls-card">
+            <div class="controls-label text-center mb-2">Year</div>
+            <div class="controls-row" id="yearButtons"></div>
+
+            <hr class="my-3" />
+
+            <div class="row g-2 align-items-start text-center justify-content-center">
+              <div class="col-12 col-lg-auto">
+                <div class="controls-label mb-2">Layers</div>
+                <div class="controls-row" role="group" aria-label="Layer toggles">
+                  <button
+                    id="btnAdded"
+                    type="button"
+                    class="btn btn-outline-primary"
+                  >
+                    Added
+                  </button>
+                  <button
+                    id="btnPersisted"
+                    type="button"
+                    class="btn btn-outline-success"
+                  >
+                    Remained
+                  </button>
+                  <button
+                    id="btnDisappeared"
+                    type="button"
+                    class="btn btn-outline-danger"
+                  >
+                    Disappeared
+                  </button>
+                </div>
+              </div>
+
+              <div class="d-none d-lg-block controls-divider"></div>
+
+              <div class="col-12 col-lg-auto">
+                <div class="controls-label mb-2">Focus Areas</div>
+                <div class="controls-row" role="group" aria-label="Focus areas">
+                  <button
+                    id="btnCbd"
+                    type="button"
+                    class="btn btn-outline-dark focus-btn"
+                  >
+                    CBD
+                  </button>
+                  <button
+                    id="btnNorthMelbourne"
+                    type="button"
+                    class="btn btn-outline-dark focus-btn"
+                  >
+                    North
+                  </button>
+                  <button
+                    id="btnSouth"
+                    type="button"
+                    class="btn btn-outline-dark focus-btn"
+                  >
+                    South
+                  </button>
+                  <button
+                    id="btnWest"
+                    type="button"
+                    class="btn btn-outline-dark focus-btn"
+                  >
+                    West
+                  </button>
+                  <button
+                    id="btnEast"
+                    type="button"
+                    class="btn btn-outline-dark focus-btn"
+                  >
+                    East
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 說明區（可留可刪） -->
+      <div class="row justify-content-center mt-4">
+        <div class="col-10 col-md-6">
+          <div class="card p-3 shadow-sm">
+            <h5>Road Type Explanation</h5>
+            <p class="small text-muted mb-2">
+              Due to performance constraints, this site only shows a subset of
+              the Melbourne map.
+            </p>
+            <ul style="list-style: none; padding-left: 0; margin-bottom: 0">
+              <li>
+                <span style="color: #666666; font-weight: bold">■</span>
+                Historical DB – Base road network (historical_db.geojson).
+              </li>
+              <li>
+                <span style="color: #007bff; font-weight: bold">■</span>
+                Added – Road that appears in the later year but not in the
+                earlier one.
+              </li>
+              <li>
+                <span style="color: #40be7f; font-weight: bold">■</span>
+                Remained – Road exists in both years.
+              </li>
+              <li>
+                <span style="color: #ff0000; font-weight: bold">■</span>
+                Disappeared – Road existed historically but not in the later
+                year.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-5"></div>
+    </div>
+
+    <!-- JS Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <script>
+      /* ===============================
+        年份設定（blocks 改由 blocks.json 自動讀）
+      ================================== */
+
+      const years = ["2001", "2006", "2011", "2020"];
+
+      // 主體底圖：每個 year / block 都有 historical_db.geojson
+      const baseType = "historical_db_final";
+      const defaultYear = "2020";
+
+      // 可切換顯示的變化圖層
+      const changeTypes = ["added", "persisted", "disappeared"];
+
+      const layerColors = {
+        added: "#007bff",
+        disappeared: "#ff0000",
+        persisted: "#40be7f",
+        historical_db: "#666666",
+      };
+
+      /* ===============================
+        初始化地圖
+      ================================== */
+
+      var map = L.map("map").setView([-37.75, 145.0], 12);
+      //m043
+      const cbdBounds = L.latLngBounds(
+        [-37.83056657086944, 144.93155470556718],
+        [-37.78665514273685, 144.9758334913777]
+      );
+
+      //m003
+      const northMelbourneBounds = L.latLngBounds(
+        [-37.698634361269676, 144.79900409913739],
+        [-37.664019931464424, 144.84318129248948]
+      );
+      //m168
+      const southBounds = L.latLngBounds(
+        [-38.40155974538014, 144.79713025765514],
+        [-38.36484287874801, 144.84178181827349]
+      );
+      // m220
+      const westBounds = L.latLngBounds(
+        [-37.785848873209005, 144.53385551937768],
+        [-37.741828768569874, 144.5768373609965]
+      );
+      // m121
+      const eastBounds = L.latLngBounds(
+        [-37.82978318640399, 145.4187213932344],
+        [-37.78587334190291, 145.46308162459414]
+      );
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+      }).addTo(map);
+
+      /* ===============================
+        圖層管理
+      ================================== */
+
+      let layerGroups = {
+        historical_db: [],
+        added: [],
+        disappeared: [],
+        persisted: [],
+      };
+
+      let initialBoundsGroup = L.featureGroup(); // 用來算初始範圍
+      let hasFittedBounds = false; // 只 fit 一次
+
+      // 三個 toggle 狀態（預設都關）
+      let visible = {
+        added: false,
+        persisted: false,
+        disappeared: false,
+      };
+
+      function clearYearLayers() {
+        // 切換年份時：historical_db + 三種變化圖層都清掉
+        for (let type in layerGroups) {
+          layerGroups[type].forEach((layer) => map.removeLayer(layer));
+          layerGroups[type] = [];
+        }
+      }
+
+      function applyVisibility(type) {
+        // 只用於 added/persisted/disappeared；historical_db 永遠顯示
+        layerGroups[type].forEach((layer) => {
+          if (visible[type]) map.addLayer(layer);
+          else map.removeLayer(layer);
+        });
+      }
+
+      /* ===============================
+        ✅ 作法 A：讀取每年 blocks.json
+        位置：melway_outputs/<year>/blocks.json
+        格式：["m003","m004",...]
+      ================================== */
+
+      async function getBlocks(year) {
+        const url = `melway_outputs/${year}/blocks.json`;
+        try {
+          const res = await fetch(url, { cache: "no-store" });
+          if (!res.ok) return [];
+          const data = await res.json();
+          if (!Array.isArray(data)) return [];
+          return data;
+        } catch (e) {
+          return [];
+        }
+      }
+
+      /* ===============================
+        載入某一年：先載 historical_db，再載變化圖層
+        ✅ 不做 fitBounds（除了第一次 defaultYear）
+      ================================== */
+
+      async function loadYear(year) {
+        clearYearLayers();
+
+        const blocks = await getBlocks(year);
+        if (!blocks || blocks.length === 0) {
+          console.warn(`No blocks.json or empty blocks for year=${year}`);
+          return;
+        }
+
+        blocks.forEach((block) => {
+          // 1) historical_db：主體，永遠顯示
+          {
+            const url = `melway_outputs/${year}/${block}/${baseType}.geojson`;
+
+            fetch(url)
+              .then((res) => res.json())
+              .then((data) => {
+                const layer = L.geoJSON(data, {
+                  style: { color: layerColors.historical_db, weight: 2 },
+                });
+                layerGroups.historical_db.push(layer);
+                layer.addTo(map);
+
+                // 🔑 只在第一次載入預設年份時，累積 bounds
+                if (!hasFittedBounds && year === defaultYear) {
+                  initialBoundsGroup.addLayer(layer);
+                }
+              })
+              .catch(() => {
+                // 缺檔就跳過
+              });
+          }
+
+          // 2) added / persisted / disappeared：依 toggle 狀態顯示
+          changeTypes.forEach((type) => {
+            const url = `melway_outputs/${year}/${block}/${type}.geojson`;
+
+            fetch(url)
+              .then((res) => res.json())
+              .then((data) => {
+                const layer = L.geoJSON(data, {
+                  style: { color: layerColors[type], weight: 2 },
+                });
+
+                layerGroups[type].push(layer);
+
+                if (visible[type]) layer.addTo(map);
+              })
+              .catch(() => {
+                // 缺檔/404 就跳過
+              });
+          });
+        });
+
+        // 🔒 初始視角：只做一次（只針對 defaultYear）
+        if (!hasFittedBounds && year === defaultYear) {
+          setTimeout(() => {
+            if (initialBoundsGroup.getLayers().length > 0) {
+              map.fitBounds(initialBoundsGroup.getBounds(), {
+                padding: [20, 20],
+                maxZoom: 17,
+              });
+              hasFittedBounds = true;
+            }
+          }, 300);
+        }
+      }
+
+      /* ===============================
+        年份按鈕
+      ================================== */
+
+      const btnGroup = document.getElementById("yearButtons");
+
+      years.forEach((yr) => {
+        let btn = document.createElement("button");
+        btn.className = "btn btn-outline-primary";
+        if (yr === defaultYear) btn.classList.add("active");
+        btn.innerText = yr;
+
+        btn.addEventListener("click", function () {
+          document
+            .querySelectorAll("#yearButtons button")
+            .forEach((b) => b.classList.remove("active"));
+          this.classList.add("active");
+          loadYear(yr);
+        });
+
+        btnGroup.appendChild(btn);
+      });
+
+      /* ===============================
+        三個 toggle 按鈕（added/persisted/disappeared）
+      ================================== */
+
+      function wireToggle(btnId, type) {
+        const btn = document.getElementById(btnId);
+        btn.addEventListener("click", () => {
+          visible[type] = !visible[type];
+
+          if (visible[type]) btn.classList.add("active");
+          else btn.classList.remove("active");
+
+          applyVisibility(type); // 不動視角
+        });
+      }
+
+      wireToggle("btnAdded", "added");
+      wireToggle("btnPersisted", "persisted");
+      wireToggle("btnDisappeared", "disappeared");
+
+      function setActiveFocusButton(activeId) {
+        document.querySelectorAll(".focus-btn").forEach((btn) => {
+          if (btn.id === activeId) btn.classList.add("active");
+          else btn.classList.remove("active");
+        });
+      }
+
+      const btnCbd = document.getElementById("btnCbd");
+      btnCbd.addEventListener("click", () => {
+        setActiveFocusButton("btnCbd");
+        map.flyToBounds(cbdBounds, { padding: [20, 20] });
+      });
+
+      const btnNorthMelbourne = document.getElementById("btnNorthMelbourne");
+      btnNorthMelbourne.addEventListener("click", () => {
+        setActiveFocusButton("btnNorthMelbourne");
+        map.flyToBounds(northMelbourneBounds, { padding: [20, 20] });
+      });
+
+      const btnSouth = document.getElementById("btnSouth");
+      btnSouth.addEventListener("click", () => {
+        setActiveFocusButton("btnSouth");
+        map.flyToBounds(southBounds, { padding: [20, 20] });
+      });
+
+      const btnWest = document.getElementById("btnWest");
+      btnWest.addEventListener("click", () => {
+        setActiveFocusButton("btnWest");
+        map.flyToBounds(westBounds, { padding: [20, 20] });
+      });
+
+      const btnEast = document.getElementById("btnEast");
+      btnEast.addEventListener("click", () => {
+        setActiveFocusButton("btnEast");
+        map.flyToBounds(eastBounds, { padding: [20, 20] });
+      });
+
+      /* ===============================
+        初始載入
+      ================================== */
+
+      loadYear(defaultYear);
+    </script>
+  </body>
+</html>

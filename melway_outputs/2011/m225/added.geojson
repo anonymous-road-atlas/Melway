@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "gid": 49392758, "osm_id": "49392758", "code": null, "fclass": "unclassified", "name": "Martins Road", "pixel_count": 20, "Var_line": 0.0, "Edge_contrast": 0.0, "ROI": 0.0, "Road_detected": -1, "ROI_norm": -0.69824777345643985, "Pred": 0 }, "geometry": { "type": "LineString", "coordinates": [ [ 144.487179, -37.8302784 ], [ 144.4852478, -37.840226099999988 ], [ 144.482622099999986, -37.8550863 ], [ 144.480816800000014, -37.8653014 ] ] } }
+]
+}

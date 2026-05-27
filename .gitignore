@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Pipeline intermediates / outputs
+outputs/
+logs/
+data/melway/*/m*_rgba.tif
+data/melway/*/mel_roads_m*_old_2.geojson
+
+# OS
+.DS_Store
+Thumbs.db
+
+
+# Others
+melway_outputs_old/
+melway_outputs_old_2/
+roads.geojson
+
+README_pub.md
+
+ExportBlock-afadf1a6-ec93-4782-887e-da116c7b7c24-Part-1
+
+test

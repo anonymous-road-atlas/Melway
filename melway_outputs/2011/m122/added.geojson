@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "gid": 28533483, "osm_id": "28533483", "code": null, "fclass": "residential", "name": "Jordan Road", "pixel_count": 64, "Var_line": 82.844535827636719, "Edge_contrast": 29.96540641784668, "ROI": 4313.5, "Road_detected": -1, "ROI_norm": -1.2437275687184037, "Pred": 0 }, "geometry": { "type": "LineString", "coordinates": [ [ 145.4054111, -37.8735068 ], [ 145.4054427, -37.8734567 ], [ 145.4054615, -37.873412699999989 ], [ 145.4054859, -37.8733773 ], [ 145.4054983, -37.873372 ] ] } },
+{ "type": "Feature", "properties": { "gid": 480011038, "osm_id": "480011038", "code": null, "fclass": "residential", "name": "Chalet Road", "pixel_count": 50, "Var_line": 54.148632049560547, "Edge_contrast": 26.302188873291016, "ROI": 2567.9999999999995, "Road_detected": -1, "ROI_norm": -1.437055419119718, "Pred": 0 }, "geometry": { "type": "LineString", "coordinates": [ [ 145.3914052, -37.8615716 ], [ 145.390014799999989, -37.861192099999982 ] ] } }
+]
+}

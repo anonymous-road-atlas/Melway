@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "gid": 113275, "osm_id_x": "817764631", "code": 5121.0, "fclass_x": "unclassified", "name_x": "Provisioning Way", "ref": null, "oneway": "B", "maxspeed": 0.0, "layer": 0.0, "bridge": "F", "tunnel": "F", "state": "VIC", "class": 6.0, "metropolit": null, "status": "disappeared", "osm_id_y": null, "railway": null, "z_order": null, "other_tags": null, "name_y": null, "waterway": null, "man_made": null, "aerialway": null, "barrier": null, "gid_df_feat": null, "fclass_y": null, "length_m": null, "overlap_m": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ 144.91695, -37.8039636 ], [ 144.916866199999987, -37.8039746 ], [ 144.91653740000001, -37.8040332 ], [ 144.9163192, -37.8040642 ], [ 144.9160038, -37.8041037 ], [ 144.9159034, -37.8041133 ], [ 144.915807699999988, -37.8041161 ], [ 144.915721, -37.8041135 ], [ 144.9156333, -37.8041041 ], [ 144.9155269, -37.8040869 ], [ 144.915414, -37.8040619 ], [ 144.9149688, -37.8039522 ], [ 144.9148865, -37.8039417 ], [ 144.9148184, -37.8039391 ], [ 144.9147283, -37.8039425 ], [ 144.9145646, -37.80396 ], [ 144.9143755, -37.8039789 ], [ 144.914262900000011, -37.8039915 ], [ 144.914217, -37.8040045 ], [ 144.9141881, -37.8040294 ], [ 144.914170899999988, -37.8040532 ], [ 144.9141632, -37.8040874 ], [ 144.9141706, -37.804257 ] ] ] } }
+]
+}

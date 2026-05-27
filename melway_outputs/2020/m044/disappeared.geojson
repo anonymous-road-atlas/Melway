@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "gid": 78543, "osm_id_x": "250234911", "code": 5121.0, "fclass_x": "unclassified", "name_x": null, "ref": null, "oneway": "F", "maxspeed": 0.0, "layer": 0.0, "bridge": "F", "tunnel": "F", "state": "VIC", "class": 6.0, "metropolit": null, "status": "disappeared", "osm_id_y": null, "railway": null, "z_order": null, "other_tags": null, "name_y": null, "waterway": null, "man_made": null, "aerialway": null, "barrier": null, "gid_df_feat": null, "fclass_y": null, "length_m": null, "overlap_m": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ 145.0105576, -37.7896401 ], [ 145.010595099999989, -37.7899237 ], [ 145.0106353, -37.7901631 ], [ 145.010662599999989, -37.7903187 ] ] ] } },
+{ "type": "Feature", "properties": { "gid": 173518, "osm_id_x": "853329284", "code": 5121.0, "fclass_x": "unclassified", "name_x": null, "ref": null, "oneway": "B", "maxspeed": 0.0, "layer": 0.0, "bridge": "F", "tunnel": "F", "state": "VIC", "class": 6.0, "metropolit": null, "status": "disappeared", "osm_id_y": null, "railway": null, "z_order": null, "other_tags": null, "name_y": null, "waterway": null, "man_made": null, "aerialway": null, "barrier": null, "gid_df_feat": null, "fclass_y": null, "length_m": null, "overlap_m": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ 145.0130931, -37.7886062 ], [ 145.0135598, -37.7881447 ], [ 145.0150126, -37.789476 ], [ 145.014770199999987, -37.7897571 ], [ 145.011146, -37.7900913 ], [ 145.010976199999988, -37.7898508 ], [ 145.010822499999989, -37.789903 ] ] ] } }
+]
+}

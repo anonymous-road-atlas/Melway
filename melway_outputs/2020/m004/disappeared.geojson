@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "gid": 190690, "osm_id_x": "404174673", "code": 5121.0, "fclass_x": "unclassified", "name_x": "Plant Road", "ref": null, "oneway": "B", "maxspeed": 0.0, "layer": 0.0, "bridge": "F", "tunnel": "F", "state": "VIC", "class": 6.0, "metropolit": null, "status": "disappeared", "osm_id_y": null, "railway": null, "z_order": null, "other_tags": null, "name_y": null, "waterway": null, "man_made": null, "aerialway": null, "barrier": null, "gid_df_feat": null, "fclass_y": null, "length_m": null, "overlap_m": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ 144.8340519, -37.6711674 ], [ 144.8339144, -37.6711957 ], [ 144.8337976, -37.6711927 ], [ 144.833628, -37.6711752 ], [ 144.8332169, -37.6711292 ], [ 144.8326471, -37.6710646 ], [ 144.8324365, -37.6710407 ], [ 144.8311142, -37.6708815 ], [ 144.8310022, -37.6708685 ] ] ] } }
+]
+}

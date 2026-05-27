@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "gid": 266831, "osm_id_x": "31272304", "code": 5121.0, "fclass_x": "unclassified", "name_x": "Agosta Drive", "ref": null, "oneway": "B", "maxspeed": 0.0, "layer": 0.0, "bridge": "F", "tunnel": "F", "state": "VIC", "class": 6.0, "metropolit": null, "status": "disappeared", "osm_id_y": null, "railway": null, "z_order": null, "other_tags": null, "name_y": null, "waterway": null, "man_made": null, "aerialway": null, "barrier": null, "gid_df_feat": null, "fclass_y": null, "length_m": null, "overlap_m": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ 144.8017219, -37.8205682 ], [ 144.797480799999988, -37.8202147 ] ] ] } }
+]
+}

@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "gid": 176418047, "osm_id": "176418047", "code": null, "fclass": "tertiary", "name": "Browns Road", "pixel_count": 25, "Var_line": 85.789276123046875, "Edge_contrast": 11.145941734313965, "ROI": 1162.5, "Road_detected": -1, "ROI_norm": -1.0100470992863739, "Pred": 0 }, "geometry": { "type": "LineString", "coordinates": [ [ 144.95214630000001, -38.4019113 ], [ 144.951886, -38.4016783 ] ] } },
+{ "type": "Feature", "properties": { "gid": 395940026, "osm_id": "395940026", "code": null, "fclass": "tertiary", "name": "Browns Road", "pixel_count": 25, "Var_line": 85.789276123046875, "Edge_contrast": 11.145941734313965, "ROI": 1530.0, "Road_detected": -1, "ROI_norm": -0.97165128186896987, "Pred": 0 }, "geometry": { "type": "LineString", "coordinates": [ [ 144.951886, -38.4016783 ], [ 144.9522556, -38.401759399999982 ] ] } }
+]
+}

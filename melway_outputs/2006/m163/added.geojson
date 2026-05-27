@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "gid": 35138179, "osm_id": "35138179", "code": null, "fclass": "residential", "name": null, "pixel_count": 100, "Var_line": 0.0, "Edge_contrast": 0.0, "ROI": 0.0, "Road_detected": -1, "ROI_norm": -1.1830256123167526, "Pred": 0 }, "geometry": { "type": "LineString", "coordinates": [ [ 145.1527777, -38.318139 ], [ 145.1491728, -38.31813970000001 ], [ 145.148872399999988, -38.31813970000001 ], [ 145.148628800000012, -38.318139799999983 ] ] } },
+{ "type": "Feature", "properties": { "gid": 38322938, "osm_id": "38322938", "code": null, "fclass": "residential", "name": null, "pixel_count": 50, "Var_line": 0.0, "Edge_contrast": 0.0, "ROI": 377.83333333333326, "Road_detected": -1, "ROI_norm": -1.1407267555697715, "Pred": 0 }, "geometry": { "type": "LineString", "coordinates": [ [ 145.1527777, -38.318139 ], [ 145.152820600000013, -38.3199909 ] ] } }
+]
+}
