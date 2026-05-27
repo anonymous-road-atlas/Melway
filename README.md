@@ -1,6 +1,6 @@
 # Melway Historical Road Change Detection Pipeline
 
-**Live demo:** <https://anonymous-road-atlas.github.io/melway/>
+**Project page:** <https://anonymous-road-atlas.github.io/melway/>
 
 Detect and classify road changes between historical Melway map sheets (GeoTIFF)
 and a modern OpenStreetMap-derived road network.
